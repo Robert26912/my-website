@@ -42,12 +42,21 @@
         .tile p {
             margin: 0;
         }
+        /* Adjust tile sizes */
+        .large {
+            grid-column: span 2; /* Occupies 2 columns */
+            grid-row: span 2; /* Occupies 2 rows */
+        }
+        .medium {
+            grid-column: span 1; /* Occupies 1 column */
+            grid-row: span 1; /* Occupies 1 row */
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="tile">
+    <div class="tile large">
         <img src="image1.jpg" alt="Image 1">
         <div class="content">
             <h3>About Me</h3>
@@ -55,7 +64,7 @@
         </div>
     </div>
 
-    <div class="tile">
+    <div class="tile medium">
         <img src="image2.jpg" alt="Image 2">
         <div class="content">
             <h3>My Work</h3>
@@ -67,7 +76,7 @@
         </div>
     </div>
 
-    <div class="tile">
+    <div class="tile medium">
         <img src="image3.jpg" alt="Image 3">
         <div class="content">
             <h3>Qualifications</h3>
@@ -86,7 +95,7 @@
         </div>
     </div>
 
-    <div class="tile">
+    <div class="tile large">
         <img src="image4.jpg" alt="Image 4">
         <div class="content">
             <h3>Code Samples</h3>
