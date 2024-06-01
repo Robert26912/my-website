@@ -6,60 +6,87 @@
     <title>Robert Hidri - IoT Engineer</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f2f2f7;
+            color: #333;
         }
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
+            background-color: #fff;
+            padding: 20px 0;
             text-align: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
         nav {
-            background-color: #666;
+            background-color: #111;
             color: #fff;
-            padding: 10px;
+            padding: 10px 0;
             text-align: center;
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #0070c9;
         }
         section {
-            padding: 20px;
-            margin: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
+            padding: 50px 20px;
             text-align: center;
         }
-        /* Adjustments for responsiveness */
-        @media only screen and (max-width: 600px) {
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 5px;
-            }
-            section {
-                margin: 10px;
-                padding: 10px;
-            }
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1, h2 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: bold;
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        p, ul {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #0070c9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #004d99;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Robert Hidri - IoT Engineer</h1>
+    <div class="container">
+        <h1>Robert Hidri - IoT Engineer</h1>
+    </div>
 </header>
 
 <nav>
@@ -70,51 +97,43 @@
 </nav>
 
 <section id="about">
-    <h2>About Me</h2>
-    <!-- Create a container for the text content -->
-    <div id="about-me-content"></div>
-
-    <!-- Include a script to fetch and insert the content of the text file -->
-    <script>
-        fetch('about_me.txt?v=1')
-            .then(response => response.text())
-            .then(text => {
-                const formattedText = makeLinksClickable(text)
-                    .split('\n')
-                    .map(line => `<p>${line}</p>`)
-                    .join('');
-                document.getElementById('about-me-content').innerHTML = formattedText;
-            });
-
-        function makeLinksClickable(text) {
-            const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-            return text.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
-        }
-    </script>
+    <div class="container">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at leo id justo consequat tincidunt. Nullam et ex non magna accumsan ultrices.</p>
+    </div>
 </section>
 
 <section id="work">
-    <h2>My Work</h2>
-    <p>Describe some of your notable projects and experiences as an IoT engineer. Include images or videos if possible.</p>
+    <div class="container">
+        <h2>My Work</h2>
+        <p>Describe some of your notable projects and experiences as an IoT engineer. Include images or videos if possible.</p>
+    </div>
 </section>
 
 <section id="qualifications">
-    <h2>Qualifications</h2>
-    <ul>
-        <li>Bachelor's Degree in IoT from Savonia AMK Finland (source: personal information)</li>
-        <!-- Add more qualifications here -->
-    </ul>
+    <div class="container">
+        <h2>Qualifications</h2>
+        <ul>
+            <li>Bachelor's Degree in IoT from Savonia AMK Finland (source: personal information)</li>
+            <!-- Add more qualifications here -->
+        </ul>
+    </div>
 </section>
 
 <section id="code">
-    <h2>Code Samples</h2>
-    <p>Display snippets of your code here. Explain each snippet briefly and mention the technologies or languages used.</p>
-    <!-- Add code snippets here -->
+    <div class="container">
+        <h2>Code Samples</h2>
+        <p>Display snippets of your code here. Explain each snippet briefly and mention the technologies or languages used.</p>
+        <!-- Add code snippets here -->
+    </div>
 </section>
 
 <footer>
-    <p>&copy; 2024 Robert Hidri. All rights reserved.</p>
+    <div class="container">
+        <p>&copy; 2024 Robert Hidri. All rights reserved.</p>
+    </div>
 </footer>
 
 </body>
 </html>
+
