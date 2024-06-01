@@ -11,110 +11,107 @@
             padding: 0;
             background-color: #f0f0f0;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #666;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        section {
-            padding: 20px;
-            margin: 20px;
+        .tile {
             background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
+            margin: 20px;
             padding: 20px;
-            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
-        /* Adjustments for responsiveness */
-        @media only screen and (max-width: 600px) {
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 5px;
-            }
-            section {
-                margin: 10px;
-                padding: 10px;
-            }
+        .tile:hover {
+            transform: scale(1.05);
+        }
+        .tile img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .tile .content {
+            display: none;
+        }
+        .tile.active .content {
+            display: block;
+        }
+        .tile h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .tile p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Robert Hidri - IoT Engineer</h1>
-</header>
+<div class="tile">
+    <img src="image1.jpg" alt="Image 1">
+    <div class="content">
+        <h3>About Me</h3>
+        <p>I am a Savonia UAS graduate with a degree in Information Technology, specializing in the Internet of Things (IoT). With a proven ability to learn quickly and a strong work ethic, I am passionate about leveraging IoT technologies to solve real-world problems.</p>
+    </div>
+</div>
 
-<nav>
-    <a href="#about">About Me</a>
-    <a href="#work">My Work</a>
-    <a href="#qualifications">Qualifications</a>
-    <a href="#code">Code Samples</a>
-</nav>
+<div class="tile">
+    <img src="image2.jpg" alt="Image 2">
+    <div class="content">
+        <h3>My Work</h3>
+        <p>Notable Projects:</p>
+        <ul>
+            <li>Smart Scale: Designed and developed in collaboration with a classmate for a course, a comprehensive smart scale using Raspberry Pi and various sensors.</li>
+            <li>IoT-Based Health Monitoring System: Collaborated on a class project to modify an iRobot so that it could monitor the health of an elderly user and notify if accidents happened.</li>
+        </ul>
+    </div>
+</div>
 
-<section id="about">
-    <h2>About Me</h2>
-    <!-- Create a container for the text content -->
-    <div id="about-me-content"></div>
+<div class="tile">
+    <img src="image3.jpg" alt="Image 3">
+    <div class="content">
+        <h3>Qualifications</h3>
+        <ul>
+            <li>Bachelor's Degree in IoT from Savonia AMK Finland (source: personal information)</li>
+            <li>Skills:
+                <ul>
+                    <li>IoT Development and Implementation</li>
+                    <li>Embedded Systems, Linux</li>
+                    <li>Python, C#, Java, and C Programming</li>
+                    <li>Data Analysis and Visualization</li>
+                    <li>Networking and Security</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
 
-    <!-- Include a script to fetch and insert the content of the text file -->
-    <script>
-        fetch('about_me.txt?v=1')
-            .then(response => response.text())
-            .then(text => {
-                const formattedText = makeLinksClickable(text)
-                    .split('\n')
-                    .map(line => `<p>${line}</p>`)
-                    .join('');
-                document.getElementById('about-me-content').innerHTML = formattedText;
-            });
-
-        function makeLinksClickable(text) {
-            const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-            return text.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
-        }
-    </script>
-</section>
-
-<section id="work">
-    <h2>My Work</h2>
-    <p>Describe some of your notable projects and experiences as an IoT engineer. Include images or videos if possible.</p>
-</section>
-
-<section id="qualifications">
-    <h2>Qualifications</h2>
-    <ul>
-        <li>Bachelor's Degree in IoT from Savonia AMK Finland (source: personal information)</li>
-        <!-- Add more qualifications here -->
-    </ul>
-</section>
-
-<section id="code">
-    <h2>Code Samples</h2>
-    <p>Display snippets of your code here. Explain each snippet briefly and mention the technologies or languages used.</p>
-    <!-- Add code snippets here -->
-</section>
+<div class="tile">
+    <img src="image4.jpg" alt="Image 4">
+    <div class="content">
+        <h3>Code Samples</h3>
+        <p>Display snippets of your code here. Explain each snippet briefly and mention the technologies or languages used.</p>
+        <!-- Add code snippets here -->
+    </div>
+</div>
 
 <footer>
     <p>&copy; 2024 Robert Hidri. All rights reserved.</p>
 </footer>
+
+<script>
+    const tiles = document.querySelectorAll('.tile');
+
+    tiles.forEach(tile => {
+        tile.addEventListener('click', () => {
+            if (tile.classList.contains('active')) {
+                tile.classList.remove('active');
+            } else {
+                tiles.forEach(t => t.classList.remove('active'));
+                tile.classList.add('active');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
