@@ -11,10 +11,14 @@
             padding: 0;
             background-color: #f0f0f0;
         }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust the minimum width and number of columns as needed */
+            grid-gap: 20px;
+            padding: 20px;
+        }
         .tile {
             background-color: #fff;
-            margin: 20px;
-            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -24,16 +28,12 @@
             transform: scale(1.05);
         }
         .tile img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             border-radius: 5px;
-            margin-bottom: 10px;
         }
         .tile .content {
-            display: none;
-        }
-        .tile.active .content {
-            display: block;
+            padding: 20px;
         }
         .tile h3 {
             margin-top: 0;
@@ -46,72 +46,58 @@
 </head>
 <body>
 
-<div class="tile">
-    <img src="image1.jpg" alt="About ME">
-    <div class="content">
-        <h3>About Me</h3>
-        <p>I am a Savonia UAS graduate with a degree in Information Technology, specializing in the Internet of Things (IoT). With a proven ability to learn quickly and a strong work ethic, I am passionate about leveraging IoT technologies to solve real-world problems.</p>
+<div class="container">
+    <div class="tile">
+        <img src="image1.jpg" alt="Image 1">
+        <div class="content">
+            <h3>About Me</h3>
+            <p>I am a Savonia UAS graduate with a degree in Information Technology, specializing in the Internet of Things (IoT). With a proven ability to learn quickly and a strong work ethic, I am passionate about leveraging IoT technologies to solve real-world problems.</p>
+        </div>
     </div>
-</div>
 
-<div class="tile">
-    <img src="image2.jpg" alt="Image 2">
-    <div class="content">
-        <h3>My Work</h3>
-        <p>Notable Projects:</p>
-        <ul>
-            <li>Smart Scale: Designed and developed in collaboration with a classmate for a course, a comprehensive smart scale using Raspberry Pi and various sensors.</li>
-            <li>IoT-Based Health Monitoring System: Collaborated on a class project to modify an iRobot so that it could monitor the health of an elderly user and notify if accidents happened.</li>
-        </ul>
+    <div class="tile">
+        <img src="image2.jpg" alt="Image 2">
+        <div class="content">
+            <h3>My Work</h3>
+            <p>Notable Projects:</p>
+            <ul>
+                <li>Smart Scale: Designed and developed in collaboration with a classmate for a course, a comprehensive smart scale using Raspberry Pi and various sensors.</li>
+                <li>IoT-Based Health Monitoring System: Collaborated on a class project to modify an iRobot so that it could monitor the health of an elderly user and notify if accidents happened.</li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<div class="tile">
-    <img src="image3.jpg" alt="Image 3">
-    <div class="content">
-        <h3>Qualifications</h3>
-        <ul>
-            <li>Bachelor's Degree in IoT from Savonia AMK Finland (source: personal information)</li>
-            <li>Skills:
-                <ul>
-                    <li>IoT Development and Implementation</li>
-                    <li>Embedded Systems, Linux</li>
-                    <li>Python, C#, Java, and C Programming</li>
-                    <li>Data Analysis and Visualization</li>
-                    <li>Networking and Security</li>
-                </ul>
-            </li>
-        </ul>
+    <div class="tile">
+        <img src="image3.jpg" alt="Image 3">
+        <div class="content">
+            <h3>Qualifications</h3>
+            <ul>
+                <li>Bachelor's Degree in IoT from Savonia AMK Finland (source: personal information)</li>
+                <li>Skills:
+                    <ul>
+                        <li>IoT Development and Implementation</li>
+                        <li>Embedded Systems, Linux</li>
+                        <li>Python, C#, Java, and C Programming</li>
+                        <li>Data Analysis and Visualization</li>
+                        <li>Networking and Security</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<div class="tile">
-    <img src="image4.jpg" alt="Image 4">
-    <div class="content">
-        <h3>Code Samples</h3>
-        <p>Display snippets of your code here. Explain each snippet briefly and mention the technologies or languages used.</p>
-        <!-- Add code snippets here -->
+    <div class="tile">
+        <img src="image4.jpg" alt="Image 4">
+        <div class="content">
+            <h3>Code Samples</h3>
+            <p>Display snippets of your code here. Explain each snippet briefly and mention the technologies or languages used.</p>
+            <!-- Add code snippets here -->
+        </div>
     </div>
+
+    <!-- Add more tiles as needed -->
+
 </div>
-
-<footer>
-    <p>&copy; 2024 Robert Hidri. All rights reserved.</p>
-</footer>
-
-<script>
-    const tiles = document.querySelectorAll('.tile');
-
-    tiles.forEach(tile => {
-        tile.addEventListener('click', () => {
-            if (tile.classList.contains('active')) {
-                tile.classList.remove('active');
-            } else {
-                tiles.forEach(t => t.classList.remove('active'));
-                tile.classList.add('active');
-            }
-        });
-    });
-</script>
 
 </body>
 </html>
