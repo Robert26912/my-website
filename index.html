@@ -41,6 +41,19 @@
             padding: 20px;
             text-align: center;
         }
+        /* Adjustments for responsiveness */
+        @media only screen and (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 5px;
+            }
+            section {
+                margin: 10px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -58,17 +71,25 @@
 
 <section id="about">
     <h2>About Me</h2>
-    <!-- Create a placeholder for the text content -->
-    <pre id="about-me-content"></pre>
+    <!-- Create a container for the text content -->
+    <div id="about-me-content"></div>
 
     <!-- Include a script to fetch and insert the content of the text file -->
     <script>
-        fetch('about_me.txt')
+        fetch('about_me.txt?v=1')
             .then(response => response.text())
             .then(text => {
-                // Insert the content of the text file into the about-me-content div
-                document.getElementById('about-me-content').innerHTML = text;
+                const formattedText = makeLinksClickable(text)
+                    .split('\n')
+                    .map(line => `<p>${line}</p>`)
+                    .join('');
+                document.getElementById('about-me-content').innerHTML = formattedText;
             });
+
+        function makeLinksClickable(text) {
+            const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+            return text.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
+        }
     </script>
 </section>
 
@@ -94,23 +115,6 @@
 <footer>
     <p>&copy; 2024 Robert Hidri. All rights reserved.</p>
 </footer>
-<!-- Makes the link clickable -->
-<script>
-    fetch('about_me.txt?v=1')
-        .then(response => response.text())
-        .then(text => {
-            const formattedText = makeLinksClickable(text)
-                .split('\n')
-                .map(line => `<p>${line}</p>`)
-                .join('');
-            document.getElementById('about-me-content').innerHTML = formattedText;
-        });
-
-    function makeLinksClickable(text) {
-        const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-        return text.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
-    }
-</script>
 
 </body>
 </html>
