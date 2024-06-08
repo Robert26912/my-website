@@ -3,164 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert Hidri - IoT Engineer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #666;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .tile {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-        }
-        .tile img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .tile .content {
-            position: absolute;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            width: 100%;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        .tile:hover {
-            transform: scale(1.05);
-        }
-        .tile:hover .content {
-            transform: translateY(0);
-        }
-        .tile.large {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        .tile.medium {
-            grid-column: span 2;
-        }
-        .tile.small {
-            grid-column: span 1;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .tile.large, .tile.medium, .tile.small {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-        }
-    </style>
+    <title>Robert Hidri</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<header>
-    <h1>Robert Hidri - IoT Engineer</h1>
-</header>
-
-<nav>
-    <a href="#about">About Me</a>
-    <a href="#work">My Work</a>
-    <a href="#qualifications">Qualifications</a>
-    <a href="#code">Code Samples</a>
-</nav>
-
-<div class="grid-container">
-    <!-- Tile 1 -->
-    <div class="tile large">
-        <img src="images/image1.jpg" alt="About Me Image">
-        <div class="content">
-            <h3>About Me</h3>
-            <p>Robert Hidri, IoT Engineer, Savonia UAS graduate...</p>
+    <header>
+        <h1>Robert Hidri</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Born in Albania, living in Turku, Finland. Graduated with a Bachelor in IoT from Savonia AMK. Interested in architecture, VR, AR, and more.</p>
+        <img src="images/robert.jpg" alt="Robert Hidri">
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Project 1</h3>
+            <img src="images/project1.jpg" alt="Project 1">
+            <p>Details about Project 1.</p>
         </div>
-    </div>
-
-    <!-- Tile 2 -->
-    <div class="tile small">
-        <img src="images/project1.jpg" alt="Project 1 Image">
-        <div class="content">
-            <h3>Smart Scale Project</h3>
-            <p>Designed and developed a comprehensive smart scale using Raspberry Pi...</p>
+        <div class="project">
+            <h3>Project 2</h3>
+            <img src="images/project2.jpg" alt="Project 2">
+            <p>Details about Project 2.</p>
         </div>
-    </div>
-
-    <!-- Tile 3 -->
-    <div class="tile small">
-        <img src="images/project2.jpg" alt="Project 2 Image">
-        <div class="content">
-            <h3>Health Monitoring System</h3>
-            <p>Collaborated on a project to modify an Irobot for elderly health monitoring...</p>
-        </div>
-    </div>
-
-    <!-- Tile 4 -->
-    <div class="tile medium">
-        <img src="images/qualifications.jpg" alt="Qualifications Image">
-        <div class="content">
-            <h3>Qualifications</h3>
-            <p>Bachelor's Degree in IoT from Savonia AMK Finland...</p>
-        </div>
-    </div>
-
-    <!-- Tile 5 -->
-    <div class="tile medium">
-        <img src="images/code_samples.jpg" alt="Code Samples Image">
-        <div class="content">
-            <h3>Code Samples</h3>
-            <p>Examples of code written in Python, C#, Java, and C...</p>
-        </div>
-    </div>
-
-    <!-- Tile 6 -->
-    <div class="tile small">
-        <img src="images/achievement.jpg" alt="Achievement Image">
-        <div class="content">
-            <h3>Genelec OY Software</h3>
-            <p>Developed software for Genelec OY, basis for my thesis...</p>
-        </div>
-    </div>
-
-    <!-- Add more tiles as needed -->
-</div>
-
-<footer>
-    <p>&copy; 2024 Robert Hidri. All rights reserved.</p>
-</footer>
-
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:robert@example.com">robert@example.com</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Robert Hidri</p>
+    </footer>
 </body>
 </html>
