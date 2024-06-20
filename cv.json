@@ -1,0 +1,15 @@
+{
+    "cv": [
+        {
+            "title": "Bachelor in IoT",
+            "image": "images/degree.jpg",
+            "description": "Graduated with a Bachelor in IoT from Savonia AMK."
+        },
+        {
+            "title": "Work Experience",
+            "image": "images/work.jpg",
+            "description": "Details about your work experience."
+        }
+        // Add more CV items as needed
+    ]
+}
