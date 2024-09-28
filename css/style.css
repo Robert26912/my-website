@@ -28,64 +28,66 @@ header h1 {
     font-size: 2.5rem;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/* Grades Section */
+#grades {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    transition: background-color 0.3s;
-}
-
-nav ul li a:hover {
-    background-color: #444;
-    border-radius: 5px;
-}
-
-/* Section Styles */
-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-h2 {
-    color: #333;
+#grades h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 30px;
+#grades ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Image Styling */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+#grades ul li {
+    margin-bottom: 15px;
+    position: relative;
+    padding: 10px 15px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#grades ul li:hover {
+    background-color: #e2e2e2;
+    transform: translateY(-2px); /* Small lift on hover */
+}
+
+/* Subject details (initially hidden) */
+.subject-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    background-color: #fafafa;
+    padding: 0 15px; /* Adjust padding for smooth opening */
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid #0077cc;
+}
+
+/* Show details on hover */
+#grades ul li:hover .subject-details {
+    max-height: 200px; /* Adjust based on content */
+    padding: 10px 15px; /* Add padding when expanded */
+}
+
+.subject-details p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #666;
 }
 
 /* Footer Styles */
@@ -102,67 +104,19 @@ footer p {
     margin: 0;
 }
 
-footer a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Contact Section Styles */
-section#contact p a {
-    color: #1a1a1a;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-section#contact p a:hover {
-    color: #0077cc;
-    text-decoration: underline;
-}
-
-/* Responsive Styles */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    nav ul li a {
-        font-size: 1.1rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    section {
-        padding: 40px 10px;
+    #grades {
+        padding: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    nav ul {
-        gap: 5px;
+    #grades ul li {
+        padding: 10px 10px;
     }
 
-    nav ul li a {
-        font-size: 1rem;
-        padding: 8px 15px;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    p {
-        font-size: 0.95rem;
+    #grades h2 {
+        font-size: 1.6rem;
     }
 }
