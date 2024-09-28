@@ -354,3 +354,9 @@ html {
         font-size: 0.95rem;
     }
 }
+video, iframe {
+    display: block;
+    margin: 20px auto; /* Center the video */
+    border: 2px solid #333; /* Add a border */
+    border-radius: 10px; /* Rounded corners */
+}
