@@ -1,6 +1,3 @@
-/* Importing Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 /* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
@@ -28,131 +25,138 @@ header h1 {
     font-size: 2.5rem;
 }
 
-/* Grades Section */
-#grades {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#grades h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-#grades ul {
+/* Navigation Styles */
+nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-#grades ul li {
-    margin-bottom: 15px;
-    position: relative;
-    padding: 10px 15px;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 20px;
     transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Section Styles */
+section {
+    padding: 60px 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#about {
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+}
+
+#profile {
+    background: linear-gradient(to right, #ffe0b2, #ffcc80);
+}
+
+#skills {
+    background: linear-gradient(to right, #e1bee7, #d1c4e9);
+}
+
+#education {
+    background: linear-gradient(to right, #c8e6c9, #a5d6a7);
+}
+
+#work-experience {
+    background: linear-gradient(to right, #ffccbc, #ffab91);
+}
+
+#grades {
+    background: linear-gradient(to right, #f1f8e9, #c8e6c9);
+}
+
+#contact {
+    background: linear-gradient(to right, #ffecb3, #ffe082);
+}
+
+/* Text and Button Styles */
+h2 {
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: #0077cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    overflow: hidden;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-#grades ul li:hover {
-    background-color: #e2e2e2;
-    transform: translateY(-2px); /* Small lift on hover */
+button:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
 }
 
-/* Subject details (initially hidden) */
-.subject-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-    background-color: #fafafa;
-    padding: 0 15px; /* Adjust padding for smooth opening */
-    margin-top: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-left: 3px solid #0077cc;
-}
-
-/* Show details on hover */
-#grades ul li:hover .subject-details {
-    max-height: 200px; /* Adjust based on content */
-    padding: 10px 15px; /* Add padding when expanded */
-}
-
-.subject-details p {
-    margin: 5px 0;
-    font-size: 0.95rem;
-    color: #666;
-}
-
-/* Footer Styles */
+/* Footer */
 footer {
     background-color: #1a1a1a;
     color: white;
     text-align: center;
     padding: 20px;
     font-size: 0.9rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
 
-footer p {
-    margin: 0;
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-/* Responsive adjustments */
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
-    #grades {
-        padding: 10px;
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 1.1rem;
+    }
+
+    section {
+        padding: 40px 10px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    #grades ul li {
-        padding: 10px 10px;
+    nav ul {
+        gap: 5px;
     }
 
-    #grades h2 {
-        font-size: 1.6rem;
+    nav ul li a {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
     }
 }
-/* Section Styles */
-section {
-    padding: 60px 20px;
-    margin: 0 auto;
-    max-width: 1200px;
-}
-
-#about {
-    background-color: #e0f7fa; /* Light Cyan */
-}
-
-#profile {
-    background-color: #ffe0b2; /* Light Orange */
-}
-
-#skills {
-    background-color: #e1bee7; /* Light Purple */
-}
-
-#education {
-    background-color: #c8e6c9; /* Light Green */
-}
-
-#work-experience {
-    background-color: #ffccbc; /* Light Coral */
-}
-
-#grades {
-    background-color: #f1f8e9; /* Light Lime Green */
-}
-
-#contact {
-    background-color: #ffecb3; /* Light Yellow */
-}
-
-/* Other styles remain unchanged... */
