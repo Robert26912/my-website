@@ -120,3 +120,39 @@ footer p {
         font-size: 1.6rem;
     }
 }
+/* Section Styles */
+section {
+    padding: 60px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#about {
+    background-color: #e0f7fa; /* Light Cyan */
+}
+
+#profile {
+    background-color: #ffe0b2; /* Light Orange */
+}
+
+#skills {
+    background-color: #e1bee7; /* Light Purple */
+}
+
+#education {
+    background-color: #c8e6c9; /* Light Green */
+}
+
+#work-experience {
+    background-color: #ffccbc; /* Light Coral */
+}
+
+#grades {
+    background-color: #f1f8e9; /* Light Lime Green */
+}
+
+#contact {
+    background-color: #ffecb3; /* Light Yellow */
+}
+
+/* Other styles remain unchanged... */
