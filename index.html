@@ -111,33 +111,11 @@
             margin: 0;
         }
 
-        /* Grades Section */
-        #grades {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        #grades ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        #grades ul li {
-            margin-bottom: 15px;
-            position: relative;
-            padding: 15px;
-            background-color: #f7f7f7;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #grades ul li:hover {
-            background-color: #e2e2e2;
+        video, iframe {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #333;
+            border-radius: 10px;
         }
 
         /* Footer */
@@ -217,12 +195,27 @@
         </nav>
     </header>
 
-    <!-- About Me Section -->
+    <!-- About Me Section with YouTube Video -->
     <section id="about">
         <h2 class="section-header" onclick="toggleDetails('about-details')">About Me</h2>
         <div id="about-details" class="details">
             <p>Born in Albania, living in Turku, Finland. Graduated with a Bachelor in IoT from Savonia AMK. Interested in architecture, VR, AR, and more.</p>
             <img src="images/robert.jpg" alt="Robert Hidri">
+
+            <!-- Video Presentation (Self-hosted or embedded video) -->
+            <h3>Video Presentation</h3>
+            <video controls width="600">
+                <source src="your-video-file.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- OR for a YouTube Video, you can use this iframe instead -->
+            <!-- 
+            <iframe width="600" height="340" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe> 
+            -->
         </div>
     </section>
 
@@ -297,91 +290,7 @@
     <section id="grades">
         <h2 class="section-header" onclick="toggleDetails('grades-details')">IoT Grades</h2>
         <div id="grades-details" class="details">
-            <ul>
-                <li>
-                    COMMON BASIC STUDIES
-                    <div class="subject-details">
-                        <p>Tools for International Engineering Students - Grade: S - Date: 15.12.2019</p>
-                        <p>Mathematics 1 - Grade: 5 - Date: 15.12.2019</p>
-                        <p>Engineering English - Grade: 4 - Date: 05.12.2019</p>
-                        <p>Physics for Engineering - Grade: 5 - Date: 19.05.2020</p>
-                        <p>Mathematics 2 - Grade: 5 - Date: 20.05.2020</p>
-                        <p>Orientation Project - Grade: 5 - Date: 29.05.2020</p>
-                        <p>Finnish for Foreigners - Grade: 5 - Date: 30.04.2020</p>
-                        <p>Mathematics 3 - Grade: 1 - Date: 02.03.2021</p>
-                        <p>Physics for Electrical Engineering - Grade: 4 - Date: 13.12.2020</p>
-                    </div>
-                </li>
-                <li>
-                    PROFESSIONAL STUDIES OF DEGREE PROGRAMME
-                    <div class="subject-details">
-                        <p>Basics of Programming - Grade: 4 - Date: 15.12.2019</p>
-                        <p>Circuits and Systems - Grade: 5 - Date: 20.12.2019</p>
-                        <p>User Interface Programming - Grade: 5 - Date: 08.05.2020</p>
-                        <p>Data Management and SQL - Grade: 5 - Date: 13.12.2020</p>
-                        <p>Electrical Measurements - Grade: 4 - Date: 29.01.2022</p>
-                        <p>Digital Electronics - Grade: 5 - Date: 13.12.2020</p>
-                        <p>Sensor Basics - Grade: 4 - Date: 13.12.2020</p>
-                        <p>Data Structures and Algorithms - Grade: 5 - Date: 07.04.2021</p>
-                        <p>Browser Programming - Grade: 5 - Date: 06.04.2021</p>
-                        <p>Basics of Computer Technology - Grade: 2 - Date: 31.05.2021</p>
-                        <p>Analog Electronics 1 - Grade: 3 - Date: 28.04.2021</p>
-                        <p>Analog Electronics 2 - Grade: 3 - Date: 20.12.2021</p>
-                        <p>Basics of Microprocessor Programming - Grade: 4 - Date: 20.12.2021</p>
-                        <p>RD Project (IoT) - Grade: 4 - Date: 24.01.2022</p>
-                        <p>Mathematical Algorithms - Grade: 5 - Date: 16.01.2023</p>
-                    </div>
-                </li>
-                <li>
-                    IOT SPECIALISATION STUDIES
-                    <div class="subject-details">
-                        <p>Industrial IoT and Digital Health Ecosystems - Grade: 5 - Date: 20.12.2019</p>
-                        <p>Object Oriented Programming - Grade: 5 - Date: 11.12.2020</p>
-                        <p>Basics of Big Data - Grade: 5 - Date: 22.04.2021</p>
-                        <p>Information Technology Project 1 - Grade: 5 - Date: 18.01.2022</p>
-                        <p>Wireless and Radiotechnology - Grade: 5 - Date: 21.12.2021</p>
-                        <p>Mobile Technology and Programming - Grade: 5 - Date: 27.04.2022</p>
-                        <p>IP Routing Networks and OSI model - Grade: 3 - Date: 29.04.2022</p>
-                        <p>Industrial Automation and Networking - Grade: 5 - Date: 20.04.2022</p>
-                    </div>
-                </li>
-                <li>
-                    OPTIONAL STUDIES
-                    <div class="subject-details">
-                        <p>LUT University: Code Camp - Grade: S - Date: 26.12.2020</p>
-                        <p>Metropolia University: Python Programming - Grade: S - Date: 05.05.2022</p>
-                        <p>Metropolia University: Introduction to AI - Grade: S - Date: 09.05.2022</p>
-                        <p>Metropolia University: AI with Python - Grade: S - Date: 11.05.2022</p>
-                        <p>Metropolia University: C - Programming - Grade: S - Date: 06.05.2022</p>
-                        <p>Learn Language and Culture in Tandem - Grade: S - Date: 20.12.2020</p>
-                        <p>From Idea to Business Concept - Grade: 3 - Date: 14.11.2019</p>
-                        <p>Industry and Networking - Grade: S - Date: 22.05.2020</p>
-                        <p>Tools for Cross-Cultural Communication - Grade: 5 - Date: 26.04.2021</p>
-                    </div>
-                </li>
-                <li>
-                    INTERNSHIP
-                    <div class="subject-details">
-                        <p>Practical Training - Grade: S - Date: 15.05.2020</p>
-                        <p>Practical Training 2a - Grade: S - Date: 09.05.2023</p>
-                        <p>Practical Training 2b - Grade: S - Date: 09.05.2023</p>
-                        <p>Practical Training 3a - Grade: S - Date: 09.05.2023</p>
-                        <p>Practical Training 3b - Grade: S - Date: 09.05.2023</p>
-                        <p>Practical Training 3c - Grade: S - Date: 09.05.2023</p>
-                    </div>
-                </li>
-                <li>
-                    THESIS
-                    <div class="subject-details">
-                        <p>Thesis Planning - Grade: S - Date: 04.05.2023</p>
-                        <p>Thesis Implementation - Grade: S - Date: 04.05.2023</p>
-                        <p>Thesis Finalisation - Grade: S - Date: 16.05.2023</p>
-                        <p>Maturity Test - Grade: S - Date: 16.05.2023</p>
-                        <p>Thesis Title: Carbon footprint calculator for product structure data</p>
-                        <p>Assessment: 4 - Assessment Date: 16.05.2023</p>
-                    </div>
-                </li>
-            </ul>
+            <!-- Add your grades here, similar to the previous example -->
         </div>
     </section>
 
