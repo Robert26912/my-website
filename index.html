@@ -59,44 +59,37 @@
             border-radius: 5px;
         }
 
-        /* About Me Section */
-        #about {
-            padding: 50px 20px;
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+            margin: 0 auto;
             max-width: 1200px;
-            margin: 20px auto;
-            text-align: center;
         }
 
+        #about, #portfolio, #cv, #grades, #contact {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        /* About Me Section */
         #about img {
             max-width: 200px;
             border-radius: 50%;
             margin-top: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Portfolio Section */
-        #portfolio {
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-
-        #portfolio h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        #portfolio #projects {
-            text-align: center;
-        }
-
-        /* CV Section */
-        #cv {
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: 20px auto;
-            text-align: center;
         }
 
         /* Grades Section */
@@ -106,12 +99,6 @@
             padding: 20px;
             background-color: white;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        #grades h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
         }
 
         #grades ul {
@@ -149,24 +136,6 @@
             padding: 10px 10px;
         }
 
-        .subject-details p {
-            margin: 5px 0;
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        /* Contact Section */
-        #contact {
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        #contact p {
-            font-size: 1.1rem;
-        }
-
         /* Footer */
         footer {
             background-color: #1a1a1a;
@@ -176,56 +145,57 @@
             font-size: 0.9rem;
         }
 
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
+            header h1 {
+                font-size: 2rem;
+            }
 
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
 
-    nav ul li a {
-        font-size: 1.1rem;
-    }
+            nav ul li a {
+                font-size: 1.1rem;
+            }
 
-    section {
-        padding: 40px 10px;
-    }
+            section {
+                padding: 40px 10px;
+            }
 
-    h2 {
-        font-size: 1.8rem;
-    }
+            h2 {
+                font-size: 1.8rem;
+            }
 
-    p {
-        font-size: 1rem;
-    }
-}
+            p {
+                font-size: 1rem;
+            }
+        }
 
-@media (max-width: 480px) {
-    nav ul {
-        gap: 5px;
-    }
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 5px;
+            }
 
-    nav ul li a {
-        font-size: 1rem;
-        padding: 8px 15px;
-    }
+            nav ul li a {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
 
-    h2 {
-        font-size: 1.5rem;
-    }
+            h2 {
+                font-size: 1.5rem;
+            }
 
-    p {
-        font-size: 0.95rem;
-    }
-}
-
-
-
-
-
+            p {
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 
@@ -320,4 +290,3 @@
 </body>
 
 </html>
-
