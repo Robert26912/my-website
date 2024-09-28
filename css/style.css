@@ -31,9 +31,6 @@ header h1 a {
     text-decoration: none;    /* Remove the underline from the link */
 }
 
-header h1 a:hover {
-    text-decoration: underline;  /* Optional: Add an underline when hovered */
-}
 
 
 /* Navigation Styles */
