@@ -62,36 +62,53 @@
         /* Section Styles */
         section {
             padding: 60px 20px;
-            margin: 0 auto;
+            margin: 20px auto;
             max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         #about {
-            background-color: #e0f7fa; /* Light Cyan */
+            background: linear-gradient(to right, #e0f7fa, #b2ebf2);
         }
 
         #profile {
-            background-color: #ffe0b2; /* Light Orange */
+            background: linear-gradient(to right, #ffe0b2, #ffcc80);
         }
 
         #skills {
-            background-color: #e1bee7; /* Light Purple */
+            background: linear-gradient(to right, #e1bee7, #d1c4e9);
         }
 
         #education {
-            background-color: #c8e6c9; /* Light Green */
+            background: linear-gradient(to right, #c8e6c9, #a5d6a7);
         }
 
         #work-experience {
-            background-color: #ffccbc; /* Light Coral */
+            background: linear-gradient(to right, #ffccbc, #ffab91);
         }
 
         #grades {
-            background-color: #f1f8e9; /* Light Lime Green */
+            background: linear-gradient(to right, #f1f8e9, #c8e6c9);
         }
 
         #contact {
-            background-color: #ffecb3; /* Light Yellow */
+            background: linear-gradient(to right, #ffecb3, #ffe082);
+        }
+
+        /* Details styles */
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            padding: 0 10px;
+            margin-top: 10px;
+            border-left: 3px solid #0077cc;
+        }
+
+        .section-header {
+            cursor: pointer;
+            margin: 0;
         }
 
         /* Grades Section */
@@ -121,21 +138,6 @@
 
         #grades ul li:hover {
             background-color: #e2e2e2;
-        }
-
-        .subject-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            background-color: #fafafa;
-            padding: 0 10px;
-            margin-top: 10px;
-            border-left: 3px solid #0077cc;
-        }
-
-        #grades ul li:hover .subject-details {
-            max-height: 300px; /* Adjust this value if needed */
-            padding: 10px 10px;
         }
 
         /* Footer */
@@ -217,172 +219,197 @@
 
     <!-- About Me Section -->
     <section id="about">
-        <h2>About Me</h2>
-        <p>Born in Albania, living in Turku, Finland. Graduated with a Bachelor in IoT from Savonia AMK. Interested in architecture, VR, AR, and more.</p>
-        <img src="images/robert.jpg" alt="Robert Hidri">
+        <h2 class="section-header" onclick="toggleDetails('about-details')">About Me</h2>
+        <div id="about-details" class="details">
+            <p>Born in Albania, living in Turku, Finland. Graduated with a Bachelor in IoT from Savonia AMK. Interested in architecture, VR, AR, and more.</p>
+            <img src="images/robert.jpg" alt="Robert Hidri">
+        </div>
     </section>
 
     <!-- Profile Section -->
     <section id="profile">
-        <h2>Profile</h2>
-        <p>I am a recently graduated IoT engineer who enjoys communication and actively engaging in problem-solving. Creativity, passion, analytical and observational skills constitute my superpowers. Apathy and lack of interest from the team towards a task are my weaknesses. Following a fulfilling one-year work experience at Genelec, I am now prepared to join a new team and embark on learning fresh insights and skills. Let's do something great together.</p>
+        <h2 class="section-header" onclick="toggleDetails('profile-details')">Profile</h2>
+        <div id="profile-details" class="details">
+            <p>I am a recently graduated IoT engineer who enjoys communication and actively engaging in problem-solving. Creativity, passion, analytical and observational skills constitute my superpowers. Apathy and lack of interest from the team towards a task are my weaknesses. Following a fulfilling one-year work experience at Genelec, I am now prepared to join a new team and embark on learning fresh insights and skills. Let's do something great together.</p>
+        </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Technical Skills:</li>
+        <h2 class="section-header" onclick="toggleDetails('skills-details')">Skills</h2>
+        <div id="skills-details" class="details">
             <ul>
-                <li>IoT (Internet of Things) knowledge and application</li>
-                <li>Software development and coding (Python, C, Java, SQL)</li>
-                <li>Good skills in using ChatGPT</li>
-                <li>Technical drawing and design skills</li>
+                <li>Technical Skills:</li>
+                <ul>
+                    <li>IoT (Internet of Things) knowledge and application</li>
+                    <li>Software development and coding (Python, C, Java, SQL)</li>
+                    <li>Good skills in using ChatGPT</li>
+                    <li>Technical drawing and design skills</li>
+                </ul>
+                <li>Problem-Solving and Critical Thinking:</li>
+                <ul>
+                    <li>Strong analytical and problem-solving abilities</li>
+                    <li>Ability to assess complex situations and make informed decisions</li>
+                    <li>Creative thinking and innovative problem-solving</li>
+                </ul>
+                <li>Communication Skills:</li>
+                <ul>
+                    <li>Excellent communication in English, Albanian, verbally and in writing</li>
+                    <li>Empathy</li>
+                </ul>
+                <li>Soft Skills:</li>
+                <ul>
+                    <li>Adaptability and flexibility</li>
+                    <li>Attention to detail</li>
+                    <li>Self-motivation and initiative</li>
+                </ul>
             </ul>
-            <li>Problem-Solving and Critical Thinking:</li>
-            <ul>
-                <li>Strong analytical and problem-solving abilities</li>
-                <li>Ability to assess complex situations and make informed decisions</li>
-                <li>Creative thinking and innovative problem-solving</li>
-            </ul>
-            <li>Communication Skills:</li>
-            <ul>
-                <li>Excellent communication in English, Albanian, verbally and in writing</li>
-                <li>Empathy</li>
-            </ul>
-            <li>Soft Skills:</li>
-            <ul>
-                <li>Adaptability and flexibility</li>
-                <li>Attention to detail</li>
-                <li>Self-motivation and initiative</li>
-            </ul>
-        </ul>
+        </div>
     </section>
 
     <!-- Education Section -->
     <section id="education">
-        <h2>Education</h2>
-        <p>Bachelor of Engineering in Internet of Things<br>
-           Savonia University of Applied Sciences, 2019-2023<br>
-           Thesis: Carbon footprint calculator for product structure data - Grade: Very good (4)<br>
-           Average degree grade: 4.32 / 258 credits</p>
-        <p>Architecture, Polytechnic University Tirana<br>
-           Architecture and Urbanism Faculty, 2013-2019 (interrupted)<br>
-           Did three years of architecture classes and interrupted for financial reasons.</p>
+        <h2 class="section-header" onclick="toggleDetails('education-details')">Education</h2>
+        <div id="education-details" class="details">
+            <p>Bachelor of Engineering in Internet of Things<br>
+               Savonia University of Applied Sciences, 2019-2023<br>
+               Thesis: Carbon footprint calculator for product structure data - Grade: Very good (4)<br>
+               Average degree grade: 4.32 / 258 credits</p>
+            <p>Architecture, Polytechnic University Tirana<br>
+               Architecture and Urbanism Faculty, 2013-2019 (interrupted)<br>
+               Did three years of architecture classes and interrupted for financial reasons.</p>
+        </div>
     </section>
 
     <!-- Work Experience Section -->
     <section id="work-experience">
-        <h2>Work Experience</h2>
-        <p>**Intern** at Genelec (01.08.2022 - 31.06.2023)<br>
-           Collaborated closely with the logistics department, focusing on the optimization of operational processes and implementing automation strategies aimed at enhancing efficiency. Engaged in discussions with external organizations to evaluate technology solutions.</p>
-        <p>In the latter part of my internship, I engaged in a pivotal assignment within the Research and Development team, leading the design and implementation of a software solution, which constituted a significant aspect of my Bachelor's thesis in IoT.</p>
-        <p>**Police Officer** at Tirana Police Department (2017-2019)<br>
-           Patrolled urban areas, enforced traffic regulations, assisted citizens, and responded to emergency calls. Committed to public safety and conflict resolution.</p>
+        <h2 class="section-header" onclick="toggleDetails('work-experience-details')">Work Experience</h2>
+        <div id="work-experience-details" class="details">
+            <p><strong>Intern</strong> at Genelec (01.08.2022 - 31.06.2023)<br>
+               Collaborated closely with the logistics department, focusing on the optimization of operational processes and implementing automation strategies aimed at enhancing efficiency. Engaged in discussions with external organizations to evaluate technology solutions.</p>
+            <p>In the latter part of my internship, I engaged in a pivotal assignment within the Research and Development team, leading the design and implementation of a software solution, which constituted a significant aspect of my Bachelor's thesis in IoT.</p>
+            <p><strong>Police Officer</strong> at Tirana Police Department (2017-2019)<br>
+               Patrolled urban areas, enforced traffic regulations, assisted citizens, and responded to emergency calls. Committed to public safety and conflict resolution.</p>
+        </div>
     </section>
 
     <!-- Grades Section -->
     <section id="grades">
-        <h2>IoT Grades</h2>
-        <ul>
-            <li>
-                COMMON BASIC STUDIES
-                <div class="subject-details">
-                    <p>Tools for International Engineering Students - Grade: S - Date: 15.12.2019</p>
-                    <p>Mathematics 1 - Grade: 5 - Date: 15.12.2019</p>
-                    <p>Engineering English - Grade: 4 - Date: 05.12.2019</p>
-                    <p>Physics for Engineering - Grade: 5 - Date: 19.05.2020</p>
-                    <p>Mathematics 2 - Grade: 5 - Date: 20.05.2020</p>
-                    <p>Orientation Project - Grade: 5 - Date: 29.05.2020</p>
-                    <p>Finnish for Foreigners - Grade: 5 - Date: 30.04.2020</p>
-                    <p>Mathematics 3 - Grade: 1 - Date: 02.03.2021</p>
-                    <p>Physics for Electrical Engineering - Grade: 4 - Date: 13.12.2020</p>
-                </div>
-            </li>
-            <li>
-                PROFESSIONAL STUDIES OF DEGREE PROGRAMME
-                <div class="subject-details">
-                    <p>Basics of Programming - Grade: 4 - Date: 15.12.2019</p>
-                    <p>Circuits and Systems - Grade: 5 - Date: 20.12.2019</p>
-                    <p>User Interface Programming - Grade: 5 - Date: 08.05.2020</p>
-                    <p>Data Management and SQL - Grade: 5 - Date: 13.12.2020</p>
-                    <p>Electrical Measurements - Grade: 4 - Date: 29.01.2022</p>
-                    <p>Digital Electronics - Grade: 5 - Date: 13.12.2020</p>
-                    <p>Sensor Basics - Grade: 4 - Date: 13.12.2020</p>
-                    <p>Data Structures and Algorithms - Grade: 5 - Date: 07.04.2021</p>
-                    <p>Browser Programming - Grade: 5 - Date: 06.04.2021</p>
-                    <p>Basics of Computer Technology - Grade: 2 - Date: 31.05.2021</p>
-                    <p>Analog Electronics 1 - Grade: 3 - Date: 28.04.2021</p>
-                    <p>Analog Electronics 2 - Grade: 3 - Date: 20.12.2021</p>
-                    <p>Basics of Microprocessor Programming - Grade: 4 - Date: 20.12.2021</p>
-                    <p>RD Project (IoT) - Grade: 4 - Date: 24.01.2022</p>
-                    <p>Mathematical Algorithms - Grade: 5 - Date: 16.01.2023</p>
-                </div>
-            </li>
-            <li>
-                IOT SPECIALISATION STUDIES
-                <div class="subject-details">
-                    <p>Industrial IoT and Digital Health Ecosystems - Grade: 5 - Date: 20.12.2019</p>
-                    <p>Object Oriented Programming - Grade: 5 - Date: 11.12.2020</p>
-                    <p>Basics of Big Data - Grade: 5 - Date: 22.04.2021</p>
-                    <p>Information Technology Project 1 - Grade: 5 - Date: 18.01.2022</p>
-                    <p>Wireless and Radiotechnology - Grade: 5 - Date: 21.12.2021</p>
-                    <p>Mobile Technology and Programming - Grade: 5 - Date: 27.04.2022</p>
-                    <p>IP Routing Networks and OSI model - Grade: 3 - Date: 29.04.2022</p>
-                    <p>Industrial Automation and Networking - Grade: 5 - Date: 20.04.2022</p>
-                </div>
-            </li>
-            <li>
-                OPTIONAL STUDIES
-                <div class="subject-details">
-                    <p>LUT University: Code Camp - Grade: S - Date: 26.12.2020</p>
-                    <p>Metropolia University: Python Programming - Grade: S - Date: 05.05.2022</p>
-                    <p>Metropolia University: Introduction to AI - Grade: S - Date: 09.05.2022</p>
-                    <p>Metropolia University: AI with Python - Grade: S - Date: 11.05.2022</p>
-                    <p>Metropolia University: C - Programming - Grade: S - Date: 06.05.2022</p>
-                    <p>Learn Language and Culture in Tandem - Grade: S - Date: 20.12.2020</p>
-                    <p>From Idea to Business Concept - Grade: 3 - Date: 14.11.2019</p>
-                    <p>Industry and Networking - Grade: S - Date: 22.05.2020</p>
-                    <p>Tools for Cross-Cultural Communication - Grade: 5 - Date: 26.04.2021</p>
-                </div>
-            </li>
-            <li>
-                INTERNSHIP
-                <div class="subject-details">
-                    <p>Practical Training - Grade: S - Date: 15.05.2020</p>
-                    <p>Practical Training 2a - Grade: S - Date: 09.05.2023</p>
-                    <p>Practical Training 2b - Grade: S - Date: 09.05.2023</p>
-                    <p>Practical Training 3a - Grade: S - Date: 09.05.2023</p>
-                    <p>Practical Training 3b - Grade: S - Date: 09.05.2023</p>
-                    <p>Practical Training 3c - Grade: S - Date: 09.05.2023</p>
-                </div>
-            </li>
-            <li>
-                THESIS
-                <div class="subject-details">
-                    <p>Thesis Planning - Grade: S - Date: 04.05.2023</p>
-                    <p>Thesis Implementation - Grade: S - Date: 04.05.2023</p>
-                    <p>Thesis Finalisation - Grade: S - Date: 16.05.2023</p>
-                    <p>Maturity Test - Grade: S - Date: 16.05.2023</p>
-                    <p>Thesis Title: Carbon footprint calculator for product structure data</p>
-                    <p>Assessment: 4 - Assessment Date: 16.05.2023</p>
-                </div>
-            </li>
-        </ul>
+        <h2 class="section-header" onclick="toggleDetails('grades-details')">IoT Grades</h2>
+        <div id="grades-details" class="details">
+            <ul>
+                <li>
+                    COMMON BASIC STUDIES
+                    <div class="subject-details">
+                        <p>Tools for International Engineering Students - Grade: S - Date: 15.12.2019</p>
+                        <p>Mathematics 1 - Grade: 5 - Date: 15.12.2019</p>
+                        <p>Engineering English - Grade: 4 - Date: 05.12.2019</p>
+                        <p>Physics for Engineering - Grade: 5 - Date: 19.05.2020</p>
+                        <p>Mathematics 2 - Grade: 5 - Date: 20.05.2020</p>
+                        <p>Orientation Project - Grade: 5 - Date: 29.05.2020</p>
+                        <p>Finnish for Foreigners - Grade: 5 - Date: 30.04.2020</p>
+                        <p>Mathematics 3 - Grade: 1 - Date: 02.03.2021</p>
+                        <p>Physics for Electrical Engineering - Grade: 4 - Date: 13.12.2020</p>
+                    </div>
+                </li>
+                <li>
+                    PROFESSIONAL STUDIES OF DEGREE PROGRAMME
+                    <div class="subject-details">
+                        <p>Basics of Programming - Grade: 4 - Date: 15.12.2019</p>
+                        <p>Circuits and Systems - Grade: 5 - Date: 20.12.2019</p>
+                        <p>User Interface Programming - Grade: 5 - Date: 08.05.2020</p>
+                        <p>Data Management and SQL - Grade: 5 - Date: 13.12.2020</p>
+                        <p>Electrical Measurements - Grade: 4 - Date: 29.01.2022</p>
+                        <p>Digital Electronics - Grade: 5 - Date: 13.12.2020</p>
+                        <p>Sensor Basics - Grade: 4 - Date: 13.12.2020</p>
+                        <p>Data Structures and Algorithms - Grade: 5 - Date: 07.04.2021</p>
+                        <p>Browser Programming - Grade: 5 - Date: 06.04.2021</p>
+                        <p>Basics of Computer Technology - Grade: 2 - Date: 31.05.2021</p>
+                        <p>Analog Electronics 1 - Grade: 3 - Date: 28.04.2021</p>
+                        <p>Analog Electronics 2 - Grade: 3 - Date: 20.12.2021</p>
+                        <p>Basics of Microprocessor Programming - Grade: 4 - Date: 20.12.2021</p>
+                        <p>RD Project (IoT) - Grade: 4 - Date: 24.01.2022</p>
+                        <p>Mathematical Algorithms - Grade: 5 - Date: 16.01.2023</p>
+                    </div>
+                </li>
+                <li>
+                    IOT SPECIALISATION STUDIES
+                    <div class="subject-details">
+                        <p>Industrial IoT and Digital Health Ecosystems - Grade: 5 - Date: 20.12.2019</p>
+                        <p>Object Oriented Programming - Grade: 5 - Date: 11.12.2020</p>
+                        <p>Basics of Big Data - Grade: 5 - Date: 22.04.2021</p>
+                        <p>Information Technology Project 1 - Grade: 5 - Date: 18.01.2022</p>
+                        <p>Wireless and Radiotechnology - Grade: 5 - Date: 21.12.2021</p>
+                        <p>Mobile Technology and Programming - Grade: 5 - Date: 27.04.2022</p>
+                        <p>IP Routing Networks and OSI model - Grade: 3 - Date: 29.04.2022</p>
+                        <p>Industrial Automation and Networking - Grade: 5 - Date: 20.04.2022</p>
+                    </div>
+                </li>
+                <li>
+                    OPTIONAL STUDIES
+                    <div class="subject-details">
+                        <p>LUT University: Code Camp - Grade: S - Date: 26.12.2020</p>
+                        <p>Metropolia University: Python Programming - Grade: S - Date: 05.05.2022</p>
+                        <p>Metropolia University: Introduction to AI - Grade: S - Date: 09.05.2022</p>
+                        <p>Metropolia University: AI with Python - Grade: S - Date: 11.05.2022</p>
+                        <p>Metropolia University: C - Programming - Grade: S - Date: 06.05.2022</p>
+                        <p>Learn Language and Culture in Tandem - Grade: S - Date: 20.12.2020</p>
+                        <p>From Idea to Business Concept - Grade: 3 - Date: 14.11.2019</p>
+                        <p>Industry and Networking - Grade: S - Date: 22.05.2020</p>
+                        <p>Tools for Cross-Cultural Communication - Grade: 5 - Date: 26.04.2021</p>
+                    </div>
+                </li>
+                <li>
+                    INTERNSHIP
+                    <div class="subject-details">
+                        <p>Practical Training - Grade: S - Date: 15.05.2020</p>
+                        <p>Practical Training 2a - Grade: S - Date: 09.05.2023</p>
+                        <p>Practical Training 2b - Grade: S - Date: 09.05.2023</p>
+                        <p>Practical Training 3a - Grade: S - Date: 09.05.2023</p>
+                        <p>Practical Training 3b - Grade: S - Date: 09.05.2023</p>
+                        <p>Practical Training 3c - Grade: S - Date: 09.05.2023</p>
+                    </div>
+                </li>
+                <li>
+                    THESIS
+                    <div class="subject-details">
+                        <p>Thesis Planning - Grade: S - Date: 04.05.2023</p>
+                        <p>Thesis Implementation - Grade: S - Date: 04.05.2023</p>
+                        <p>Thesis Finalisation - Grade: S - Date: 16.05.2023</p>
+                        <p>Maturity Test - Grade: S - Date: 16.05.2023</p>
+                        <p>Thesis Title: Carbon footprint calculator for product structure data</p>
+                        <p>Assessment: 4 - Assessment Date: 16.05.2023</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:robert0hidri@gmail.com">robert0hidri@gmail.com</a></p>
-        <p>Phone: +358466133040</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/robert-hidri-326155199" target="_blank">robert-hidri</a></p>
-        <p>Address: Lemminkäisenkatu 17 B 59, Turku, Finland</p>
+        <h2 class="section-header" onclick="toggleDetails('contact-details')">Contact</h2>
+        <div id="contact-details" class="details">
+            <p>Email: <a href="mailto:robert0hidri@gmail.com">robert0hidri@gmail.com</a></p>
+            <p>Phone: +358466133040</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/robert-hidri-326155199" target="_blank">robert-hidri</a></p>
+            <p>Address: Lemminkäisenkatu 17 B 59, Turku, Finland</p>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Robert Hidri | Designed with love in Finland</p>
     </footer>
+
+    <script>
+        function toggleDetails(detailId) {
+            const detailSection = document.getElementById(detailId);
+            if (detailSection.style.maxHeight) {
+                detailSection.style.maxHeight = null; // Close the section
+            } else {
+                detailSection.style.maxHeight = detailSection.scrollHeight + "px"; // Open the section
+            }
+        }
+    </script>
 </body>
 
 </html>
