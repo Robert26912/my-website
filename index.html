@@ -4,49 +4,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert Hidri's Grades</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Robert Hidri's IoT Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        /* About Me Section */
+        #about {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #about img {
+            max-width: 200px;
+            border-radius: 50%;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        #portfolio h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #portfolio #projects {
+            text-align: center;
+        }
+
+        /* CV Section */
+        #cv {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Grades Section */
+        #grades {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #grades h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #grades ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #grades ul li {
+            margin-bottom: 15px;
+            position: relative;
+            padding: 15px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #grades ul li:hover {
+            background-color: #e2e2e2;
+        }
+
+        .subject-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background-color: #fafafa;
+            padding: 0 10px;
+            margin-top: 10px;
+            border-left: 3px solid #0077cc;
+        }
+
+        #grades ul li:hover .subject-details {
+            max-height: 150px;
+            padding: 10px 10px;
+        }
+
+        .subject-details p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <h1>Robert Hidri</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#grades">Grades</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Born in Albania, living in Turku, Finland. Graduated with a Bachelor in IoT from Savonia AMK. Interested in architecture, VR, AR, and more.</p>
+        <img src="images/robert.jpg" alt="Robert Hidri">
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div id="projects">
+            <!-- Projects will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv">
+        <h2>CV</h2>
+        <div id="cv-content">
+            <!-- CV will be dynamically loaded here -->
+        </div>
+    </section>
 
     <!-- Grades Section -->
     <section id="grades">
-        <h2>My Grades</h2>
+        <h2>IoT Grades</h2>
         <ul>
             <li>
-                IoT Systems
-                <div class="subject-details">
-                    <p>Grade: 4/5</p>
-                    <p>Learned about embedded systems, sensors, and communication protocols.</p>
-                </div>
-            </li>
-            <li>
-                Web Development
+                Introduction to IoT
                 <div class="subject-details">
                     <p>Grade: 5/5</p>
-                    <p>Focus on front-end and back-end technologies including HTML, CSS, and JavaScript.</p>
+                    <p>Covered IoT architecture, devices, and basic networking concepts.</p>
                 </div>
             </li>
             <li>
-                Virtual Reality
-                <div class="subject-details">
-                    <p>Grade: 3/5</p>
-                    <p>Basics of VR development, hardware interaction, and 3D modeling.</p>
-                </div>
-            </li>
-            <li>
-                Data Science
+                Embedded Systems for IoT
                 <div class="subject-details">
                     <p>Grade: 4/5</p>
-                    <p>Introduction to Python, data analysis, and machine learning techniques.</p>
+                    <p>Focused on microcontroller programming and sensor integration.</p>
+                </div>
+            </li>
+            <li>
+                IoT Security
+                <div class="subject-details">
+                    <p>Grade: 3/5</p>
+                    <p>Explored security issues and encryption techniques in IoT networks.</p>
+                </div>
+            </li>
+            <li>
+                Cloud Computing for IoT
+                <div class="subject-details">
+                    <p>Grade: 5/5</p>
+                    <p>Introduced cloud platforms and their role in managing IoT devices.</p>
+                </div>
+            </li>
+            <li>
+                Wireless Communication for IoT
+                <div class="subject-details">
+                    <p>Grade: 4/5</p>
+                    <p>Covered protocols like ZigBee, Bluetooth, and LoRa for IoT communication.</p>
                 </div>
             </li>
         </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:robert@example.com">robert@example.com</a></p>
     </section>
 
     <footer>
@@ -55,3 +269,4 @@
 </body>
 
 </html>
+
