@@ -25,8 +25,6 @@ header h1 {
     font-size: 2.5rem;
 }
 
-
-
 /* Navigation Styles */
 nav ul {
     list-style: none;
@@ -354,30 +352,5 @@ html {
 
     p {
         font-size: 0.95rem;
-    }
-}
-/* Video and Iframe Styling */
-video, iframe {
-    display: block;                 /* Centers the video */
-    margin: 20px auto;              /* Adds space around the video */
-    max-width: 100%;                /* Makes the video responsive */
-    height: auto;                   /* Keeps the aspect ratio */
-    border: 2px solid #333;         /* Optional: Adds a border around the video */
-    border-radius: 10px;            /* Optional: Rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for depth */
-}
-
-/* Responsive Video Adjustments */
-@media (max-width: 768px) {
-    video, iframe {
-        width: 100%;                /* Ensure the video fits smaller screens */
-        height: auto;               /* Maintain aspect ratio */
-    }
-}
-
-@media (max-width: 480px) {
-    video, iframe {
-        width: 100%;                /* Fit the video to very small screens */
-        height: auto;
     }
 }
