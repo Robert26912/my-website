@@ -34,6 +34,15 @@
             font-size: 2.5rem;
         }
 
+        header h1 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header h1 a:hover {
+            text-decoration: underline;
+        }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -96,8 +105,36 @@
             background: linear-gradient(to right, #ffecb3, #ffe082);
         }
 
-        /* Details styles */
-        .details {
+        /* Grades Section */
+        #grades {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #grades ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #grades ul li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #grades ul li:hover {
+            background-color: #e2e2e2;
+        }
+
+        /* Subject details */
+        .subject-details {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out;
@@ -106,16 +143,9 @@
             border-left: 3px solid #0077cc;
         }
 
-        .section-header {
-            cursor: pointer;
-            margin: 0;
-        }
-
-        video, iframe {
-            display: block;
-            margin: 20px auto;
-            border: 2px solid #333;
-            border-radius: 10px;
+        #grades ul li:hover .subject-details {
+            max-height: 300px;
+            padding: 10px;
         }
 
         /* Footer */
@@ -183,7 +213,7 @@
 
 <body>
     <header>
-        <h1>Robert Hidri</h1>
+        <h1><a href="#">Robert Hidri</a></h1>
         <nav>
             <ul>
                 <li><a href="#about">About Me</a></li>
@@ -195,130 +225,104 @@
         </nav>
     </header>
 
-    <!-- About Me Section with YouTube Video -->
+    <!-- About Me Section -->
     <section id="about">
-        <h2 class="section-header" onclick="toggleDetails('about-details')">About Me</h2>
-        <div id="about-details" class="details">
-            <p>Born in Albania, living in Turku, Finland. Graduated with a Bachelor in IoT from Savonia AMK. Interested in architecture, VR, AR, and more.</p>
-            <img src="images/robert.jpg" alt="Robert Hidri">
-
-            <!-- Video Presentation (Self-hosted or embedded video) -->
-            <h3>Video Presentation</h3>
-            <video controls width="600">
-                <source src="your-video-file.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-            <!-- OR for a YouTube Video, you can use this iframe instead -->
-            <!-- 
-            <iframe width="600" height="340" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe> 
-            -->
-        </div>
+        <h2>About Me</h2>
+        <p>Born in Albania, living in Turku, Finland. Graduated with a Bachelor in IoT from Savonia AMK. Interested in architecture, VR, AR, and more.</p>
     </section>
 
     <!-- Profile Section -->
     <section id="profile">
-        <h2 class="section-header" onclick="toggleDetails('profile-details')">Profile</h2>
-        <div id="profile-details" class="details">
-            <p>I am a recently graduated IoT engineer who enjoys communication and actively engaging in problem-solving. Creativity, passion, analytical and observational skills constitute my superpowers. Apathy and lack of interest from the team towards a task are my weaknesses. Following a fulfilling one-year work experience at Genelec, I am now prepared to join a new team and embark on learning fresh insights and skills. Let's do something great together.</p>
-        </div>
+        <h2>Profile</h2>
+        <p>I am a recently graduated IoT engineer who enjoys communication and actively engaging in problem-solving. Creativity, passion, analytical and observational skills constitute my superpowers. Apathy and lack of interest from the team towards a task are my weaknesses. Following a fulfilling one-year work experience at Genelec, I am now prepared to join a new team and embark on learning fresh insights and skills. Let's do something great together.</p>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
-        <h2 class="section-header" onclick="toggleDetails('skills-details')">Skills</h2>
-        <div id="skills-details" class="details">
-            <ul>
-                <li>Technical Skills:</li>
+        <h2>Skills</h2>
+        <ul>
+            <li>Technical Skills:
                 <ul>
                     <li>IoT (Internet of Things) knowledge and application</li>
                     <li>Software development and coding (Python, C, Java, SQL)</li>
-                    <li>Good skills in using ChatGPT</li>
                     <li>Technical drawing and design skills</li>
                 </ul>
-                <li>Problem-Solving and Critical Thinking:</li>
+            </li>
+            <li>Problem-Solving and Critical Thinking:
                 <ul>
                     <li>Strong analytical and problem-solving abilities</li>
-                    <li>Ability to assess complex situations and make informed decisions</li>
                     <li>Creative thinking and innovative problem-solving</li>
                 </ul>
-                <li>Communication Skills:</li>
+            </li>
+            <li>Communication Skills:
                 <ul>
                     <li>Excellent communication in English, Albanian, verbally and in writing</li>
-                    <li>Empathy</li>
                 </ul>
-                <li>Soft Skills:</li>
-                <ul>
-                    <li>Adaptability and flexibility</li>
-                    <li>Attention to detail</li>
-                    <li>Self-motivation and initiative</li>
-                </ul>
-            </ul>
-        </div>
+            </li>
+        </ul>
     </section>
 
     <!-- Education Section -->
     <section id="education">
-        <h2 class="section-header" onclick="toggleDetails('education-details')">Education</h2>
-        <div id="education-details" class="details">
-            <p>Bachelor of Engineering in Internet of Things<br>
-               Savonia University of Applied Sciences, 2019-2023<br>
-               Thesis: Carbon footprint calculator for product structure data - Grade: Very good (4)<br>
-               Average degree grade: 4.32 / 258 credits</p>
-            <p>Architecture, Polytechnic University Tirana<br>
-               Architecture and Urbanism Faculty, 2013-2019 (interrupted)<br>
-               Did three years of architecture classes and interrupted for financial reasons.</p>
-        </div>
+        <h2>Education</h2>
+        <p>Bachelor of Engineering in Internet of Things<br>
+            Savonia University of Applied Sciences, 2019-2023<br>
+            Thesis: Carbon footprint calculator for product structure data - Grade: Very good (4)<br>
+            Average degree grade: 4.32 / 258 credits</p>
     </section>
 
     <!-- Work Experience Section -->
     <section id="work-experience">
-        <h2 class="section-header" onclick="toggleDetails('work-experience-details')">Work Experience</h2>
-        <div id="work-experience-details" class="details">
-            <p><strong>Intern</strong> at Genelec (01.08.2022 - 31.06.2023)<br>
-               Collaborated closely with the logistics department, focusing on the optimization of operational processes and implementing automation strategies aimed at enhancing efficiency. Engaged in discussions with external organizations to evaluate technology solutions.</p>
-            <p>In the latter part of my internship, I engaged in a pivotal assignment within the Research and Development team, leading the design and implementation of a software solution, which constituted a significant aspect of my Bachelor's thesis in IoT.</p>
-            <p><strong>Police Officer</strong> at Tirana Police Department (2017-2019)<br>
-               Patrolled urban areas, enforced traffic regulations, assisted citizens, and responded to emergency calls. Committed to public safety and conflict resolution.</p>
-        </div>
+        <h2>Work Experience</h2>
+        <p><strong>Intern</strong> at Genelec (01.08.2022 - 31.06.2023)<br>
+            Collaborated closely with the logistics department, focusing on the optimization of operational processes and implementing automation strategies aimed at enhancing efficiency. Engaged in discussions with external organizations to evaluate technology solutions.</p>
+        <p>In the latter part of my internship, I engaged in a pivotal assignment within the Research and Development team, leading the design and implementation of a software solution, which constituted a significant aspect of my Bachelor's thesis in IoT.</p>
+        <p><strong>Police Officer</strong> at Tirana Police Department (2017-2019)<br>
+            Patrolled urban areas, enforced traffic regulations, assisted citizens, and responded to emergency calls. Committed to public safety and conflict resolution.</p>
     </section>
 
     <!-- Grades Section -->
     <section id="grades">
-        <h2 class="section-header" onclick="toggleDetails('grades-details')">IoT Grades</h2>
-        <div id="grades-details" class="details">
-            <!-- Add your grades here, similar to the previous example -->
-        </div>
+        <h2>IoT Grades</h2>
+        <ul>
+            <li>
+                COMMON BASIC STUDIES
+                <div class="subject-details">
+                    <p>Tools for International Engineering Students - Grade: S - Date: 15.12.2019</p>
+                    <p>Mathematics 1 - Grade: 5 - Date: 15.12.2019</p>
+                    <p>Engineering English - Grade: 4 - Date: 05.12.2019</p>
+                </div>
+            </li>
+            <li>
+                PROFESSIONAL STUDIES OF DEGREE PROGRAMME
+                <div class="subject-details">
+                    <p>Basics of Programming - Grade: 4 - Date: 15.12.2019</p>
+                    <p>Circuits and Systems - Grade: 5 - Date: 20.12.2019</p>
+                </div>
+            </li>
+            <li>
+                IOT SPECIALISATION STUDIES
+                <div class="subject-details">
+                    <p>Industrial IoT and Digital Health Ecosystems - Grade: 5 - Date: 20.12.2019</p>
+                    <p>Object Oriented Programming - Grade: 5 - Date: 11.12.2020</p>
+                </div>
+            </li>
+        </ul>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-header" onclick="toggleDetails('contact-details')">Contact</h2>
-        <div id="contact-details" class="details">
-            <p>Email: <a href="mailto:robert0hidri@gmail.com">robert0hidri@gmail.com</a></p>
-            <p>Phone: +358466133040</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/robert-hidri-326155199" target="_blank">robert-hidri</a></p>
-            <p>Address: Lemminkäisenkatu 17 B 59, Turku, Finland</p>
-        </div>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:robert0hidri@gmail.com">robert0hidri@gmail.com</a></p>
+        <p>Phone: +358466133040</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/robert-hidri-326155199" target="_blank">robert-hidri</a></p>
+        <p>Address: Lemminkäisenkatu 17 B 59, Turku, Finland</p>
     </section>
 
     <footer>
         <p>&copy; 2024 Robert Hidri | Designed with love in Finland</p>
     </footer>
 
-    <script>
-        function toggleDetails(detailId) {
-            const detailSection = document.getElementById(detailId);
-            if (detailSection.style.maxHeight) {
-                detailSection.style.maxHeight = null; // Close the section
-            } else {
-                detailSection.style.maxHeight = detailSection.scrollHeight + "px"; // Open the section
-            }
-        }
-    </script>
 </body>
 
 </html>
