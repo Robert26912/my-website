@@ -12,7 +12,7 @@ function loadProjects() {
         },
         {
             title: "Project 2",
-            image: "images/project2.jpg",
+            image: "images/project2.jpg",           
             description: "Details about Project 2."
         }
         // Add more projects as needed
