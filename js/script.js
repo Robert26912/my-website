@@ -42,7 +42,7 @@ function loadProjects() {
 }
 
 function loadCV() {
-    fetch('data/cv.json')
+    fetch('assets/data/resume.json')
         .then(response => response.json())
         .then(data => {
             const cvContainer = document.getElementById('cv-content');
@@ -69,3 +69,23 @@ function loadCV() {
         })
         .catch(error => console.error('Error loading CV:', error));
 }
+// Fetch and display text in the "About Me" section
+fetch('assets/text/about_me.txt') // Adjust the path to the text file
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to fetch the text file'); // Handle fetch errors
+    }
+    return response.text();
+  })
+  .then(data => {
+    const aboutText = document.getElementById('about-text'); // Target the element in HTML
+    if (aboutText) {
+      aboutText.textContent = data; // Insert the fetched text
+    } else {
+      console.error('Element with id "about-text" not found');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching text file:', error);
+  });
+
