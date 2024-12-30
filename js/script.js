@@ -16,7 +16,7 @@ function loadProjects() {
             description: "Details about Project 2."
         }
         // Add more projects as needed
-    ];
+    ];  
 
     const projectsContainer = document.getElementById('projects');
     projects.forEach(project => {
