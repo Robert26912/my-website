@@ -1,0 +1,49 @@
+{
+    "about": "I am a recently graduated IoT engineer who enjoys communication and actively engaging in problem-solving. Creativity, passion, analytical and observational skills constitute my superpowers. Apathy and lack of interest from the team towards a task are my weaknesses. Following a fulfilling one-year work experience at Genelec, I am now prepared to join a new team and embark on learning fresh insights and skills. Let's do something great together.",
+    "projects": [
+        {
+            "title": "Project 1",
+            "image": "images/project1.jpg",
+            "description": "Details about Project 1."
+        },
+        {
+            "title": "Project 2",
+            "image": "images/project2.jpg",
+            "description": "Details about Project 2."
+        }
+    ],
+    "cv": [
+        {
+            "title": "Intern at Genelec",
+            "image": "images/genelec.jpg",
+            "description": "Collaborated closely with the logistics department, focusing on the optimization of operational processes and implementing automation strategies aimed at enhancing efficiency."
+        },
+        {
+            "title": "Police Officer",
+            "image": "images/police.jpg",
+            "description": "Patrolled urban areas, enforced traffic regulations, assisted citizens, and responded to emergency calls."
+        }
+    ],
+    "grades": [
+        {
+            "category": "COMMON BASIC STUDIES",
+            "details": [
+                "Tools for International Engineering Students - Grade: S - Date: 15.12.2019",
+                "Mathematics 1 - Grade: 5 - Date: 15.12.2019"
+            ]
+        },
+        {
+            "category": "PROFESSIONAL STUDIES OF DEGREE PROGRAMME",
+            "details": [
+                "Basics of Programming - Grade: 4 - Date: 15.12.2019",
+                "Circuits and Systems - Grade: 5 - Date: 20.12.2019"
+            ]
+        }
+    ],
+    "contact": {
+        "email": "example@example.com",
+        "phone": "+123456789",
+        "linkedin": "https://www.linkedin.com/in/robert-hidri",
+        "address": "Turku, Finland"
+    }
+}
