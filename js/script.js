@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('data/data.json') // Path to your JSON file
+    fetch('assets/data/data.json') // Path to your JSON file
         .then(response => response.json())
         .then(data => populatePortfolio(data))
         .catch(error => console.error('Error loading JSON data:', error));
