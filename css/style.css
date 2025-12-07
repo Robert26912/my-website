@@ -35,4 +35,4 @@ body {
   /* Example of tiles with different sizes */
   .tile.wide { grid-column: span 2; }
   .tile.tall { grid-row: span 2; }
-  .tile.big  { grid-column: span 4;grid-row: 3; }
+  .tile.big  { grid-column: span 4;grid-row: 7; }
