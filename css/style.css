@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    background-color: #2a92fa;
     margin: 0;
     padding: 20px;
   }
@@ -32,7 +32,7 @@ body {
 
   .tile:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 12px rgba(153, 15, 15, 0.15);
   }
 
   /* Example of tiles with different sizes */
