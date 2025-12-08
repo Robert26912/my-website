@@ -102,3 +102,76 @@ fetch('assets/data/library.json')
         // Keep subtiles inside viewport
         x = Math.min(Math.max(0, x), window.innerWidth - 100);
         y = Math.min(Math.max(0, y), window.innerHeight - 100);
+
+        const subType = sub.subtiles ? 'sub' : 'leaf';
+        const subTile = createTile(sub, subType, x, y);
+        subTile.classList.add('temp');
+        tempTiles.add(subTile);
+        allTiles.push(subTile);
+      });
+    }
+
+    function openWindow(title, url) {
+      const win = document.createElement('div');
+      win.className = 'window';
+      win.style.left = '200px';
+      win.style.top = '200px';
+      win.style.zIndex = ++highestZ;
+
+      const header = document.createElement('div');
+      header.className = 'window-header';
+      header.innerHTML = `<span>${title}</span>`;
+      const buttons = document.createElement('div');
+      buttons.className = 'window-buttons';
+      const closeBtn = document.createElement('button'); closeBtn.textContent = 'X';
+      const minBtn = document.createElement('button'); minBtn.textContent = '_';
+      buttons.appendChild(minBtn); buttons.appendChild(closeBtn);
+      header.appendChild(buttons);
+      win.appendChild(header);
+
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      win.appendChild(iframe);
+      container.appendChild(win);
+
+      // Drag window
+      let isDragging = false, offsetX, offsetY;
+      header.onmousedown = (e) => {
+        if(e.target.tagName==='BUTTON') return;
+        isDragging = true;
+        offsetX = e.clientX - win.offsetLeft;
+        offsetY = e.clientY - win.offsetTop;
+        win.style.zIndex = ++highestZ;
+      };
+      document.onmousemove = (e) => {
+        if(!isDragging) return;
+        win.style.left = Math.min(Math.max(0, e.clientX - offsetX), window.innerWidth - win.offsetWidth) + 'px';
+        win.style.top = Math.min(Math.max(0, e.clientY - offsetY), window.innerHeight - win.offsetHeight) + 'px';
+      };
+      document.onmouseup = () => { isDragging = false; };
+
+      closeBtn.onclick = () => {
+        win.remove();
+        // Restore other tiles
+        allTiles.forEach(t => {
+          if(t.dataset.locked !== "true") {
+            t.style.left = t.dataset.origX + 'px';
+            t.style.top = t.dataset.origY + 'px';
+            t.classList.remove('shrink');
+          }
+        });
+      };
+
+      minBtn.onclick = () => {
+        if(iframe.style.display !== 'none') {
+          iframe.style.display = 'none';
+          win.style.height = '40px';
+        } else {
+          iframe.style.display = 'block';
+          win.style.height = '300px';
+        }
+      };
+    }
+
+  })
+  .catch(err => console.error("JSON ERROR:", err));
