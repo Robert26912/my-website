@@ -5,7 +5,7 @@
       { "title": "Frontend", "subtiles": [
           { "title": "HTML", "content": "project_frontend.html" },
           { "title": "CSS", "content": "project_frontend.css" }
-        ] 
+        ]
       },
       { "title": "Backend", "content": "project.html" }
     ]
@@ -25,7 +25,6 @@
     "title": "Qualifications",
     "subtiles": [
       { "title": "CV", "content": "assets/text/Robert Hidri CV-Suomen Kieli.pdf" }
-    ],
-    "content": "qualifications_home.html"
+    ]
   }
 ]
