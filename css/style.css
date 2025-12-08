@@ -1,14 +1,13 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background-color: #2a92fa;
-  margin: 0;
   overflow: hidden;
 }
 
-/* Tiles as draggable bubbles */
+/* Tiles */
 .tile {
   position: absolute;
-  background: white;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -16,16 +15,19 @@ body {
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  color: white;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.2s;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.tile:hover {
-  transform: scale(1.1);
-}
+.tile.main { background-color: #2ecc71; }
+.tile.sub { background-color: #7bed8d; }
+.tile.leaf { background-color: #3498db; }
+.tile.shrink { transform: scale(0.7); opacity: 0.6; }
 
-/* Floating window */
+/* Windows */
 .window {
   position: absolute;
   width: 400px;
@@ -33,20 +35,31 @@ body {
   background: white;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  overflow: hidden;
-  z-index: 10;
   display: flex;
   flex-direction: column;
+  z-index: 10;
+  overflow: hidden;
 }
-
 .window-header {
   background: #4CAF50;
   color: white;
   padding: 8px;
   cursor: move;
   user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.window-buttons button {
+  background: rgba(255,255,255,0.3);
+  border: none;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 2px 5px;
+}
 .window iframe {
   flex: 1;
   border: none;
