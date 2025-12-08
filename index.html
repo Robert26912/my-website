@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Smart Tile Dashboard</title>
-<link rel="stylesheet" href="css/style.css">
+<title>Secure Knowledge Map</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
 </head>
 <body>
-<div id="tilesContainer"></div>
-<script src="js/main.js"></script>
+<h2>Secure Interactive Knowledge Map</h2>
+<input type="file" id="fileInput" multiple accept=".md">
+<svg width="800" height="600"></svg>
+<div class="tooltip" style="opacity:0;"></div>
+
+<script src="app.js"></script>
 </body>
 </html>
