@@ -8,45 +8,40 @@ fetch('assets/data/library.json')
       tileDiv.className = 'tile';
       tileDiv.textContent = tile.title;
 
-      // Create a container for subtiles
-      const subtilesDiv = document.createElement('div');
-      subtilesDiv.className = 'subtiles';
-      subtilesDiv.style.display = 'none'; // initially hidden
-
+      // Create a container for subtiles if they exist
+      let subtilesDiv = null;
       if (tile.subtiles) {
+        subtilesDiv = document.createElement('div');
+        subtilesDiv.className = 'subtiles';
+        subtilesDiv.style.display = 'none'; // hidden by default
+
         tile.subtiles.forEach(sub => {
           const subDiv = document.createElement('div');
           subDiv.className = 'subtile';
           subDiv.textContent = sub.title;
 
+          // Always open subtiles in a new page/tab
           subDiv.onclick = (e) => {
-            e.stopPropagation(); // prevent tile click
-            if (sub.content.startsWith('http')) {
-              window.open(sub.content, '_blank');
-            } else {
-              window.location.href = sub.content;
-            }
+            e.stopPropagation(); // prevent parent tile toggle
+            window.open(sub.content, '_blank');
           };
 
           subtilesDiv.appendChild(subDiv);
         });
       }
 
+      // Tile click: toggle subtiles if they exist, otherwise open content
       tileDiv.onclick = () => {
-        // toggle subtiles if they exist
-        if (tile.subtiles) {
+        if (subtilesDiv) {
           subtilesDiv.style.display = subtilesDiv.style.display === 'block' ? 'none' : 'block';
-        } else {
-          if (tile.content.startsWith('http')) {
-            window.open(tile.content, '_blank');
-          } else {
-            window.location.href = tile.content;
-          }
+        } else if (tile.content) {
+          // open main tile content in a new page if no subtiles
+          window.open(tile.content, '_blank');
         }
       };
 
       grid.appendChild(tileDiv);
-      grid.appendChild(subtilesDiv);
+      if (subtilesDiv) grid.appendChild(subtilesDiv);
     });
   })
   .catch(err => console.error("JSON ERROR:", err));
