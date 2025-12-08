@@ -6,66 +6,19 @@ const tooltip = d3.select(".tooltip");
 let nodes = [];
 let links = [];
 
-document.getElementById('fileInput').addEventListener('change', handleFiles, false);
-
-function handleFiles(event) {
-    const files = event.target.files;
-    const fileReadPromises = [];
-
-    for (let file of files) {
-        fileReadPromises.push(readFile(file));
-    }
-
-    Promise.all(fileReadPromises).then(results => {
-        buildGraph(results);
-    });
-}
-
-function readFile(file) {
-    return new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const content = e.target.result;
-
-            // Separate YAML frontmatter
-            const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-            let yamlData = {}, markdown = content;
-            if(match){
-                try {
-                    yamlData = jsyaml.load(match[1], { schema: jsyaml.JSON_SCHEMA });
-                } catch(e){
-                    console.error("YAML parse error in", file.name);
-                }
-                markdown = match[2];
-            }
-
-            // Convert Markdown to safe HTML
-            const safeHtml = DOMPurify.sanitize(marked.parse(markdown));
-
-            // Extract links to other notes
-            const linkMatches = [...markdown.matchAll(/\[\[([^\]]+)\]\]/g)].map(m => m[1]);
-
-            resolve({
-                id: file.name.replace('.md',''),
-                snippet: safeHtml,
-                links: linkMatches
-            });
-        };
-        reader.readAsText(file);
-    });
-}
-
-function buildGraph(noteData) {
-    nodes = noteData.map(n => ({id: n.id, snippet: n.snippet}));
-    links = [];
-    noteData.forEach(n => {
-        n.links.forEach(target => {
-            links.push({source: n.id, target: target});
-        });
-    });
-
-    renderGraph();
-}
+fetch('note.json')
+  .then(res => res.json())
+  .then(noteData => {
+      nodes = noteData.map(n => ({id: n.id, snippet: DOMPurify.sanitize(n.snippet)}));
+      links = [];
+      noteData.forEach(n => {
+          n.links.forEach(target => {
+              links.push({source: n.id, target: target});
+          });
+      });
+      renderGraph();
+  })
+  .catch(err => console.error("Failed to load note.json:", err));
 
 function renderGraph() {
     svg.selectAll("*").remove();
@@ -89,7 +42,7 @@ function renderGraph() {
         .enter().append("g")
         .on("mouseover", (event,d) => {
             tooltip.transition().duration(200).style("opacity", .9);
-            tooltip.html(d.snippet)
+            tooltip.html(d.snippet.replace(/\n/g, "<br>"))
                 .style("left", (event.pageX + 10) + "px")
                 .style("top", (event.pageY - 20) + "px");
 

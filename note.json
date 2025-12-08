@@ -1,0 +1,17 @@
+[
+  {
+    "id": "Python",
+    "snippet": "Python is a versatile programming language.",
+    "links": ["Syntax"]
+  },
+  {
+    "id": "Syntax",
+    "snippet": "Python syntax rules.",
+    "links": ["Loops"]
+  },
+  {
+    "id": "Loops",
+    "snippet": "Example:\nfor i in range(10):\n    print(i)",
+    "links": []
+  }
+]
