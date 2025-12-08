@@ -1,25 +1,41 @@
 const container = document.getElementById('tilesContainer');
 let highestZ = 10;
-const tempTiles = new Set(); // keep track of temporary hover subtiles
+const tempTiles = new Set(); // tracks hover-generated subtiles
+const allTiles = [];         // tracks all tiles for repositioning
 
-// Fetch tiles from JSON
 fetch('assets/data/library.json')
   .then(res => res.json())
   .then(tilesData => {
+
+    // Create initial main tiles
     tilesData.forEach((t,i) => {
-      createTile(t, 'main', 100 + i*200, 200);
+      const tile = createTile(t, 'main', 100 + i*200, 200);
+      allTiles.push(tile);
     });
 
     function createTile(data, type='main', x=100, y=100) {
       const tile = document.createElement('div');
       tile.className = `tile ${type}`;
       tile.textContent = data.title;
+      tile.dataset.locked = "false"; // clicked tiles stay
+      tile.dataset.type = type;
+      tile.dataset.origX = x;
+      tile.dataset.origY = y;
+
+      // Constrain to viewport
+      const clampPosition = () => {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const rect = tile.getBoundingClientRect();
+        tile.style.left = Math.min(Math.max(0, parseInt(tile.style.left)), w - rect.width) + 'px';
+        tile.style.top = Math.min(Math.max(0, parseInt(tile.style.top)), h - rect.height) + 'px';
+      };
+
       tile.style.left = x + 'px';
       tile.style.top = y + 'px';
-      tile.dataset.locked = "false"; // whether tile stays after click
       container.appendChild(tile);
 
-      // Dragging tiles
+      // Dragging
       let isDragging = false, offsetX, offsetY;
       tile.onmousedown = (e) => {
         isDragging = true;
@@ -31,30 +47,44 @@ fetch('assets/data/library.json')
         if(!isDragging) return;
         tile.style.left = e.clientX - offsetX + 'px';
         tile.style.top = e.clientY - offsetY + 'px';
+        clampPosition();
       };
       document.onmouseup = () => { isDragging = false; };
 
-      // Hover → show subtiles temporarily
+      // Hover → show subtiles
       tile.onmouseenter = () => {
-        if (data.subtiles) {
-          showSubtiles(tile, data.subtiles);
-        }
+        if (data.subtiles) showSubtiles(tile, data.subtiles);
       };
       tile.onmouseleave = () => {
-        // remove hover subtiles not locked
         tempTiles.forEach(t => {
-          if (t.dataset.locked !== "true") {
+          if(t.dataset.locked !== "true") {
             t.remove();
             tempTiles.delete(t);
           }
         });
       };
 
-      // Click → lock tile in place
+      // Click → lock tile and move other tiles away if needed
       tile.onclick = () => {
-        tile.dataset.locked = "true"; 
+        tile.dataset.locked = "true";
+
+        // Move/shrink nearby tiles
+        allTiles.forEach(t => {
+          if(t !== tile && t.dataset.locked !== "true") {
+            t.classList.add('shrink');
+            // Optionally push away slightly
+            const dx = parseInt(t.style.left) - parseInt(tile.style.left);
+            const dy = parseInt(t.style.top) - parseInt(tile.style.top);
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if(dist < 150) {
+              t.style.left = parseInt(t.style.left) + Math.sign(dx)*50 + 'px';
+              t.style.top = parseInt(t.style.top) + Math.sign(dy)*50 + 'px';
+            }
+          }
+        });
+
         // Leaf node → open window
-        if (!data.subtiles && data.content) openWindow(data.title, data.content);
+        if(!data.subtiles && data.content) openWindow(data.title, data.content);
       };
 
       return tile;
@@ -63,69 +93,12 @@ fetch('assets/data/library.json')
     function showSubtiles(parentTile, subtiles) {
       const n = subtiles.length;
       const radius = 150;
+
       subtiles.forEach((sub, i) => {
         const angle = (i / n) * Math.PI * 2;
-        const x = parseInt(parentTile.style.left) + Math.cos(angle) * radius;
-        const y = parseInt(parentTile.style.top) + Math.sin(angle) * radius;
-        const subType = sub.subtiles ? 'sub' : 'leaf';
-        const subTile = createTile(sub, subType, x, y);
-        subTile.classList.add('temp');
-        tempTiles.add(subTile);
-      });
-    }
+        let x = parseInt(parentTile.style.left) + Math.cos(angle) * radius;
+        let y = parseInt(parentTile.style.top) + Math.sin(angle) * radius;
 
-    function openWindow(title, url) {
-      const win = document.createElement('div');
-      win.className = 'window';
-      win.style.left = '200px';
-      win.style.top = '200px';
-      win.style.zIndex = ++highestZ;
-
-      const header = document.createElement('div');
-      header.className = 'window-header';
-      header.innerHTML = `<span>${title}</span>`;
-      const buttons = document.createElement('div');
-      buttons.className = 'window-buttons';
-      const closeBtn = document.createElement('button'); closeBtn.textContent = 'X';
-      const minBtn = document.createElement('button'); minBtn.textContent = '_';
-      buttons.appendChild(minBtn); buttons.appendChild(closeBtn);
-      header.appendChild(buttons);
-      win.appendChild(header);
-
-      const iframe = document.createElement('iframe');
-      iframe.src = url;
-      win.appendChild(iframe);
-      container.appendChild(win);
-
-      // Dragging window
-      let isDragging = false, offsetX, offsetY;
-      header.onmousedown = (e) => {
-        if(e.target.tagName==='BUTTON') return;
-        isDragging = true;
-        offsetX = e.clientX - win.offsetLeft;
-        offsetY = e.clientY - win.offsetTop;
-        win.style.zIndex = ++highestZ;
-      };
-      document.onmousemove = (e) => {
-        if (!isDragging) return;
-        win.style.left = e.clientX - offsetX + 'px';
-        win.style.top = e.clientY - offsetY + 'px';
-      };
-      document.onmouseup = () => { isDragging = false; };
-
-      // Close
-      closeBtn.onclick = () => win.remove();
-
-      // Minimize
-      minBtn.onclick = () => {
-        if (iframe.style.display !== 'none') {
-          iframe.style.display = 'none';
-          win.style.height = '40px';
-        } else {
-          iframe.style.display = 'block';
-          win.style.height = '300px';
-        }
-      };
-    }
-  })
-  .catch(err => console.error("JSON ERROR:", err));
+        // Keep subtiles inside viewport
+        x = Math.min(Math.max(0, x), window.innerWidth - 100);
+        y = Math.min(Math.max(0, y), window.innerHeight - 100);

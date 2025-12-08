@@ -26,6 +26,8 @@ body {
 .tile.sub { background-color: #7bed8d; }
 .tile.leaf { background-color: #3498db; }
 
+.tile.shrink { transform: scale(0.7); opacity: 0.6; }
+
 /* Windows */
 .window {
   position: absolute;
@@ -66,4 +68,3 @@ body {
   flex: 1;
   border: none;
 }
-
