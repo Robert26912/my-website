@@ -1,31 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
-<link rel="stylesheet" href="CSS/style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dashboard — Tiles + Subtiles</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --card:#fff;
+    --gap:18px;
+    --radius:12px;
+  }
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:#111}
+  .wrap{max-width:1200px;margin:24px auto;padding:0 18px}
+  h1{margin:0 0 18px;text-align:left;font-weight:600}
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-auto-rows: 140px;
+    gap:var(--gap);
+    width:100%;
+    box-sizing:border-box;
+    overflow-x:hidden;
+  }
+
+  .tile{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:0 6px 14px rgba(16,24,40,0.06);
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    cursor:pointer;
+    transition:transform .14s ease,box-shadow .14s ease;
+    overflow:hidden;
+  }
+  .tile:hover{ transform: translateY(-6px); box-shadow:0 14px 30px rgba(16,24,40,0.12) }
+
+  .title{font-size:16px;font-weight:700;margin-bottom:6px}
+  .sub{font-size:12px;color:#445;color: #556;opacity:.88;line-height:1.25}
+  .sub small{color:#777;font-weight:600}
+
+  /* size helpers */
+  .wide { grid-column: span 2; }
+  .tall { grid-row: span 2; }
+  .big { grid-column: span 2; grid-row: span 2; }
+
+  /* color accents (optional classes you can use) */
+  .accent-ai{background:linear-gradient(135deg,#2b6be6 0%,#8b5cf6 100%);color:white}
+  .accent-tools{background:linear-gradient(135deg,#06b6d4 0%,#06d6a0 100%);color:white}
+  .accent-personal{background:linear-gradient(135deg,#f59e0b 0%,#ef4444 100%);color:white}
+
+  /* small responsiveness tweak for tiny screens */
+  @media (max-width:420px){
+    .grid{ grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); grid-auto-rows: 120px;}
+  }
+</style>
 </head>
 <body>
+  <div class="wrap">
+    <h1>My Dashboard</h1>
 
-<h1>My Dashboard</h1>
-<div class="grid">
-  <div class="tile big">Tile 1</div>
-  <div class="tile wide">Tile 2 (wide)</div>
-  <div class="tile tall">Tile 3 (tall)</div>
-  <div class="tile wide">Tile 4</div>
-  <div class="tile tall">Tile 5</div>
-  <div class="tile big">Tile 6</div>
-  <div class="tile tall">Tile 7</div>
-  <div class="tile wide">Tile 1</div>
-  <div class="tile wide">Tile 2 (wide)</div>
-  <div class="tile tall">Tile 3 (tall)</div>
-  <div class="tile wide">Tile 4</div>
-  <div class="tile tall">Tile 5</div>
-  <div class="tile ">Tile 6</div>
-  <div class="tile big">Tile 7</div>
- 
-</div>
+    <div class="grid">
+      <div class="tile big accent-personal">
+        <div class="title">Personal / Private</div>
+        <div class="sub">(ID docs, Private files, Offline vault)</div>
+      </div>
 
+      <div class="tile wide accent-ai">
+        <div class="title">AI / Helpers</div>
+        <div class="sub">(prompts, quick-calls, decision pros/cons, code assistants)</div>
+      </div>
+
+      <div class="tile tall">
+        <div class="title">Projects</div>
+        <div class="sub">(active tasks, subprojects, repo links, demos)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">CV / Resume</div>
+        <div class="sub">(PDF, versions, public link, export)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Video / Media</div>
+        <div class="sub">(tutorials, playlists, demo recordings)</div>
+      </div>
+
+      <div class="tile wide accent-tools">
+        <div class="title">Tools</div>
+        <div class="sub">(GitHub, Azure, VS Code, TeleportHQ, Webstudio)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Learning</div>
+        <div class="sub">(courses, hands-on labs, daily practice checklist)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Docs / References</div>
+        <div class="sub">(cheat-sheets, API docs, protocol notes)</div>
+      </div>
+
+      <div class="tile tall">
+        <div class="title">Workflow / Playbooks</div>
+        <div class="sub">(project templates, build steps, deployment checklist)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Snippets</div>
+        <div class="sub">(reusable code, copy/paste snippets)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Assets</div>
+        <div class="sub">(icons, images, diagrams)</div>
+      </div>
+
+      <div class="tile wide">
+        <div class="title">Templates & Exports</div>
+        <div class="sub">(site templates, export HTML, CSS starter)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Practice / Labs</div>
+        <div class="sub">(cloud exercises, IoT demos, sandboxes)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Notes</div>
+        <div class="sub">(scratchpad, meeting notes, quick thoughts)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Edit Mode</div>
+        <div class="sub">(enable drag/resize, save layout, reset)</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Settings / Storage</div>
+        <div class="sub">(cloud sync, local storage, privacy toggle)</div>
+      </div>
+
+    </div>
+  </div>
 </body>
 </html>
+
