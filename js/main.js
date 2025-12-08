@@ -90,26 +90,18 @@ fetch('assets/data/library.json')
       return tile;
     }
 
-    function showSubtiles(parentTile, subtiles) {
-      const n = subtiles.length;
-      const radius = 150;
-
-      subtiles.forEach((sub, i) => {
-        const angle = (i / n) * Math.PI * 2;
-        let x = parseInt(parentTile.style.left) + Math.cos(angle) * radius;
-        let y = parseInt(parentTile.style.top) + Math.sin(angle) * radius;
-
-        // Keep subtiles inside viewport
-        x = Math.min(Math.max(0, x), window.innerWidth - 100);
-        y = Math.min(Math.max(0, y), window.innerHeight - 100);
+   function showSubtiles(parentTile, subtiles) {
+    // ... existing logic ...
+    subtiles.forEach((sub, i) => {
+        // ... existing logic to calculate x, y ...
 
         const subType = sub.subtiles ? 'sub' : 'leaf';
         const subTile = createTile(sub, subType, x, y);
         subTile.classList.add('temp');
         tempTiles.add(subTile);
-        allTiles.push(subTile);
-      });
-    }
+        // REMOVE: allTiles.push(subTile); <-- This line breaks the logic
+    });
+}
 
     function openWindow(title, url) {
       const win = document.createElement('div');
