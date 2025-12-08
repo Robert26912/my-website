@@ -17,6 +17,13 @@
       "title": "Docs",
       "type": "link",
       "content": "https://elixir-lang.org/"
+    },
+     {
+      "id": "tile4",
+      "title": "Qualifications",
+      "type": "info",
+      "content": "cv_suomen.pdf"
     }
+
   ]
 }
