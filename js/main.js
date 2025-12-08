@@ -6,13 +6,16 @@ fetch('assets/data/library.json')
       const div = document.createElement('div');
       div.className = 'tile';
       div.textContent = tile.title;
+
       div.onclick = () => {
-        if(tile.content.startsWith('http')) {
+        if (tile.content.startsWith('http')) {
           window.open(tile.content, '_blank');
         } else {
-          window.open(tile.content, '_self'); // placeholder
+          window.location.href = tile.content;
         }
-      }
+      };
+
       grid.appendChild(div);
     });
-  });
+  })
+  .catch(err => console.error("JSON ERROR:", err));
