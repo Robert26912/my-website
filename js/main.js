@@ -1,4 +1,4 @@
-fetch('assets/data/library.json')
+fetch('assets\data\library.json ')
   .then(res => res.json())
   .then(data => {
     const grid = document.querySelector('.grid');
