@@ -1,47 +1,56 @@
 fetch('assets/data/library.json')
   .then(res => res.json())
   .then(data => {
-    const grid = document.querySelector('.grid');
-    const contentFrame = document.getElementById('contentFrame');
+    const container = document.getElementById('tilesContainer');
 
-    data.tiles.forEach(tile => {
+    data.tiles.forEach((tile, index) => {
+      // Create tile bubble
       const tileDiv = document.createElement('div');
       tileDiv.className = 'tile';
       tileDiv.textContent = tile.title;
 
-      // Container for subtiles
-      let subtilesDiv = null;
-      if (tile.subtiles) {
-        subtilesDiv = document.createElement('div');
-        subtilesDiv.style.display = 'none';
-        tile.subtiles.forEach(sub => {
-          const subDiv = document.createElement('div');
-          subDiv.className = 'subtile';
-          subDiv.textContent = sub.title;
+      // Random initial position
+      tileDiv.style.top = `${50 + index*120}px`;
+      tileDiv.style.left = `${50 + index*120}px`;
 
-          // Load subtile content in iframe
-          subDiv.onclick = (e) => {
-            e.stopPropagation();
-            contentFrame.src = sub.content;
-          };
+      tileDiv.onclick = () => openWindow(tile);
 
-          subtilesDiv.appendChild(subDiv);
-        });
-      }
-
-      // Tile click
-      tileDiv.onclick = () => {
-        if (subtilesDiv) {
-          subtilesDiv.style.display = subtilesDiv.style.display === 'block' ? 'none' : 'block';
-          // Optional: load tile homepage if defined
-          if (tile.content) contentFrame.src = tile.content;
-        } else if (tile.content) {
-          contentFrame.src = tile.content;
-        }
-      };
-
-      grid.appendChild(tileDiv);
-      if (subtilesDiv) grid.appendChild(subtilesDiv);
+      container.appendChild(tileDiv);
     });
+
+    function openWindow(tile) {
+      const win = document.createElement('div');
+      win.className = 'window';
+
+      // Header
+      const header = document.createElement('div');
+      header.className = 'window-header';
+      header.textContent = tile.title;
+      win.appendChild(header);
+
+      // Iframe content
+      const iframe = document.createElement('iframe');
+      iframe.src = tile.content || (tile.subtiles ? tile.subtiles[0].content : '');
+      win.appendChild(iframe);
+
+      container.appendChild(win);
+
+      // Dragging logic
+      let offsetX, offsetY, isDragging = false;
+      header.onmousedown = (e) => {
+        isDragging = true;
+        offsetX = e.clientX - win.offsetLeft;
+        offsetY = e.clientY - win.offsetTop;
+        win.style.zIndex = ++highestZ;
+      };
+      document.onmousemove = (e) => {
+        if (!isDragging) return;
+        win.style.left = e.clientX - offsetX + 'px';
+        win.style.top = e.clientY - offsetY + 'px';
+      };
+      document.onmouseup = () => { isDragging = false; };
+    }
+
+    let highestZ = 10;
   })
   .catch(err => console.error("JSON ERROR:", err));
