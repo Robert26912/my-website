@@ -1,30 +1,34 @@
-[
-  {
-    "title": "Project",
-    "subtiles": [
-      { "title": "Frontend", "subtiles": [
-          { "title": "HTML", "content": "project_frontend.html" },
-          { "title": "CSS", "content": "project_frontend.css" }
-        ]
-      },
-      { "title": "Backend", "content": "project.html" }
-    ]
-  },
-  {
-    "title": "Python Shortcuts",
-    "content": "python_cheatsheet.pdf"
-  },
-  {
-    "title": "Docs",
-    "subtiles": [
-      { "title": "Elixir Lang", "content": "https://elixir-lang.org/" },
-      { "title": "Python Docs", "content": "https://docs.python.org/3/" }
-    ]
-  },
-  {
-    "title": "Qualifications",
-    "subtiles": [
-      { "title": "CV", "content": "assets/text/Robert Hidri CV-Suomen Kieli.pdf" }
-    ]
-  }
-]
+{
+  "tiles": [
+    {
+      "id": "tile1",
+      "title": "Project",
+      "type": "workspace",
+      "subtiles": [
+        { "title": "Frontend", "content": "project_frontend.html" },
+        { "title": "Backend", "content": "project_backend.html" }
+      ]
+    },
+    {
+      "id": "tile2",
+      "title": "Python Shortcuts",
+      "type": "info",
+      "content": "python_cheatsheet.pdf"
+    },
+    {
+      "id": "tile3",
+      "title": "Docs",
+      "type": "link",
+      "subtiles": [
+        { "title": "Elixir Lang", "content": "https://elixir-lang.org/" },
+        { "title": "Python Docs", "content": "https://docs.python.org/3/" }
+      ]
+    },
+    {
+      "id": "tile4",
+      "title": "Qualifications",
+      "type": "info",
+      "content": "assets/text/Robert Hidri CV-Suomen Kieli.pdf"
+    }
+  ]
+}
