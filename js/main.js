@@ -2,41 +2,41 @@ fetch('assets/data/library.json')
   .then(res => res.json())
   .then(data => {
     const grid = document.querySelector('.grid');
+    const contentFrame = document.getElementById('contentFrame');
 
     data.tiles.forEach(tile => {
       const tileDiv = document.createElement('div');
       tileDiv.className = 'tile';
       tileDiv.textContent = tile.title;
 
-      // Create a container for subtiles if they exist
+      // Container for subtiles
       let subtilesDiv = null;
       if (tile.subtiles) {
         subtilesDiv = document.createElement('div');
-        subtilesDiv.className = 'subtiles';
-        subtilesDiv.style.display = 'none'; // hidden by default
-
+        subtilesDiv.style.display = 'none';
         tile.subtiles.forEach(sub => {
           const subDiv = document.createElement('div');
           subDiv.className = 'subtile';
           subDiv.textContent = sub.title;
 
-          // Always open subtiles in a new page/tab
+          // Load subtile content in iframe
           subDiv.onclick = (e) => {
-            e.stopPropagation(); // prevent parent tile toggle
-            window.open(sub.content, '_blank');
+            e.stopPropagation();
+            contentFrame.src = sub.content;
           };
 
           subtilesDiv.appendChild(subDiv);
         });
       }
 
-      // Tile click: toggle subtiles if they exist, otherwise open content
+      // Tile click
       tileDiv.onclick = () => {
         if (subtilesDiv) {
           subtilesDiv.style.display = subtilesDiv.style.display === 'block' ? 'none' : 'block';
+          // Optional: load tile homepage if defined
+          if (tile.content) contentFrame.src = tile.content;
         } else if (tile.content) {
-          // open main tile content in a new page if no subtiles
-          window.open(tile.content, '_blank');
+          contentFrame.src = tile.content;
         }
       };
 

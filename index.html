@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<style>
+  body { display: flex; }
+  .grid { width: 250px; border-right: 1px solid #ccc; padding: 10px; }
+  .tile, .subtile { padding: 10px; margin: 5px 0; background: #4CAF50; color: white; cursor: pointer; }
+  .subtile { background: #8BC34A; margin-left: 15px; }
+  #contentFrame { flex: 1; border: none; }
+</style>
 </head>
 <body>
-  <div class="grid">
-    <!-- Tiles are dynamically loaded from JSON -->
-  </div>
 
-  <script src="js/main.js"></script>
+<div class="grid"></div>
+
+<iframe id="contentFrame" src=""></iframe>
+
+<script src="js/main.js"></script>
 </body>
 </html>
